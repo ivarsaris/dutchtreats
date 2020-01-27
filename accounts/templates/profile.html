@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Dutchtreats - {{ user }}'s profile{% endblock %}
+
+{% block page_heading %}Home{% endblock %}
+
+{% block content %}
+
+<p>{{ profile.username }}</p>
+<p>{{ profile.email }}</p>
+
+{% endblock %}
