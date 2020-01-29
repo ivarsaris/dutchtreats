@@ -50,7 +50,7 @@ def login(request):
                 {'login_form': login_form})
 
 
-def register(request):
+def registration(request):
     """return registration page"""
 
     if request.user.is_authenticated:
@@ -77,10 +77,11 @@ def register(request):
         registration_form = UserRegistrationForm()
 
     return render(request,
-                 'register.html',
+                 'registration.html',
                 {'registration_form': registration_form})
 
-def profile(request):
+
+def user_profile(request):
     """User profile page"""
     user = User.objects.get(email=request.user.email)
     return render(request,
