@@ -30,30 +30,49 @@
 
 <body>
 	<div class="container">
-		<h1>{% block page_heading %}{% endblock %}</h1>
-		<nav>
-			<ul>
-				{% if user.is_authenticated %}
-
-				<li><a href="{% url 'logout' %}">Logout</a></li>
-				<li><a href="{% url 'profile' %}">Profile</a></li>
-
-				{% else %}
-
-				<li><a href="{% url 'login' %}">Login</a></li>
-				<li><a href="{% url 'registration' %}">Register</a></li>
-
-				{% endif %}
-				<li>
-					<a href="{% url 'view_cart' %}">
-						<i class="fas fa-shopping-cart"></i>cart
-						{% if product_count > 0 %}
-						<label class="badge badge warning">{{ product_count }}</label>
-						{% endif %}
-					</a>
-				</li>
-			</ul>
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<a class="navbar-brand" href="{% url 'index' %}">Dutchtreats</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					{% if user.is_authenticated %}
+					<li class="nav-item active">
+						<a class="nav-link" href="{% url 'profile' %}">Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'login' %}">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'registration' %}">Register</a>
+					</li>
+					{% endif %}
+                    <li class="nav-item">
+						<a class="nav-link" href="{% url 'products' %}">Products</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="{% url 'about' %}">About</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'view_cart' %}">
+							<i class="fas fa-shopping-cart"></i>cart
+							{% if product_count > 0 %}
+							<label class="badge badge warning">{{ product_count }}</label>
+							{% endif %}
+						</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
+		<h1>{% block page_heading %}{% endblock %}</h1>
 		<hr>
 		{% if messages %}
 		<div>
@@ -64,19 +83,12 @@
 			{% endfor %}
 		</div>
 		{% endif %}
-		<div class="display">
-			<form action="{% url 'search' %}" method="get">
-				<input type="text" name='q'>
-				<button type="submit">Search</button>
-			</form>
-		</div>
+        
 		{% block content %}{% endblock %}
-	</div>
-	<footer>
-		<div class="container">
+		<footer>
 			<p>Made by Ivar</p>
-		</div>
-	</footer>
+		</footer>
+	</div>
 </body>
 
 </html>
