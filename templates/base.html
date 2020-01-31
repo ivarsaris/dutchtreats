@@ -10,8 +10,12 @@
 	<!-- bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- own CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+	<!-- font awesome fonts -->
+	<link rel="stylesheet" href="{% static 'font-awesome/fonts' %}" type="text/css">
+	<!-- font awesome CSS -->
+	<link rel="stylesheet" href="{% static 'font-awesome/css/fontawesome.min.css' %}" type="text/css">
+	<!-- own CSS -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 	<!-- bootstrap JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -25,34 +29,54 @@
 </head>
 
 <body>
-	<h1>{% block page_heading %}{% endblock %}</h1>
-	<nav>
-		<ul>
-			{% if user.is_authenticated %}
+	<div class="container">
+		<h1>{% block page_heading %}{% endblock %}</h1>
+		<nav>
+			<ul>
+				{% if user.is_authenticated %}
 
-			<li><a href="{% url 'logout' %}">Logout</a></li>
-			<li><a href="{% url 'profile' %}">Profile</a></li>
+				<li><a href="{% url 'logout' %}">Logout</a></li>
+				<li><a href="{% url 'profile' %}">Profile</a></li>
 
-			{% else %}
+				{% else %}
 
-			<li><a href="{% url 'login' %}">Login</a></li>
-			<li><a href="{% url 'registration' %}">Register</a></li>
+				<li><a href="{% url 'login' %}">Login</a></li>
+				<li><a href="{% url 'registration' %}">Register</a></li>
 
-			{% endif %}
-		</ul>
-	</nav>
-	<hr>
-	{% if messages %}
-	<div>
-		{% for message in messages %}
+				{% endif %}
+				<li>
+					<a href="{% url 'view_cart' %}">
+						<i class="fas fa-shopping-cart"></i>cart
+						{% if product_count > 0 %}
+						<label class="badge badge warning">{{ product_count }}</label>
+						{% endif %}
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<hr>
+		{% if messages %}
+		<div>
+			{% for message in messages %}
 
-		{{ message }}
+			{{ message }}
 
-		{% endfor %}
+			{% endfor %}
+		</div>
+		{% endif %}
+		<div class="display">
+			<form action="{% url 'search' %}" method="get">
+				<input type="text" name='q'>
+				<button type="submit">Search</button>
+			</form>
+		</div>
+		{% block content %}{% endblock %}
 	</div>
-	{% endif %}
-
-	{% block content %}{% endblock %}
+	<footer>
+		<div class="container">
+			<p>Made by Ivar</p>
+		</div>
+	</footer>
 </body>
 
 </html>
