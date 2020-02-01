@@ -28,7 +28,7 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
     <!-- Favicon -->
-    <link href="media/images/vlag.jpg" rel="icon" type="image/x-icon" />
+    <link href="{% static 'flag.jpg' %}" rel="shortcut icon" type="image/x-icon" />
 </head>
 
 <body>
@@ -88,6 +88,7 @@
 		{% endif %}
         
 		{% block content %}{% endblock %}
+        
 		<footer>
 			<p>Made by Ivar</p>
 		</footer>

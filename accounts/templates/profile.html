@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
 
 {% block page_title %}Dutchtreats - {{ user }}'s profile{% endblock %}
 
-{% block page_heading %}Home{% endblock %}
+{% block page_heading %}{{ user }}'s profile{% endblock %}
 
 {% block content %}
 
-<p>{{ profile.username }}</p>
-<p>{{ profile.email }}</p>
+<p>Name: {{ profile.username }}</p>
+<p>Email: {{ profile.email }}</p>
 
 {% endblock %}
