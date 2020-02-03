@@ -19,8 +19,7 @@ class Migration(migrations.Migration):
             name='Order',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=25)),
-                ('last_name', models.CharField(max_length=25)),
+                ('full_name', models.CharField(max_length=40)),
                 ('phone_number', models.CharField(max_length=15)),
                 ('street_address1', models.CharField(max_length=40)),
                 ('street_address2', models.CharField(max_length=40)),
