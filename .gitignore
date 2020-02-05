@@ -2,3 +2,5 @@
 *.sqlite3
 env.py
 tryout.html
+static/
+media/
