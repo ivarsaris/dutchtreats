@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
-{% load staticfiles %}
+{% load static from staticfiles %}
 
 {% block title %}Dutchtreats - Products{% endblock %}
 
@@ -26,7 +26,7 @@
 				{% csrf_token %}
 				<input type="number" name="quantity" min="1" max="999" class="form-control" placeholder="Amount">
 				<span class="input-group-btn">
-                    <button type="submit" class="btn btn-success">Add to cart</button>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-cart-plus"></i>Add to cart</button>
                 </span>
 			</form>
 		</div>

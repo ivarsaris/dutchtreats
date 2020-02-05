@@ -6,6 +6,10 @@ body {
     background-color:#ff4f00;
 }
 
+.messages {
+    background-color: #adb5bd;
+}
+
 footer {
     margin-top: 40px;
     padding-top: 20px;
