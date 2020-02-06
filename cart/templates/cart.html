@@ -12,6 +12,7 @@
 			<h2>Cart</h2>
 			<p>Your shopping cart.</p>
 		</div>
+        <hr>
 		{% for item in cart_items %}
 		<div class="cart-content">
 			<div class="row">
@@ -19,34 +20,36 @@
 					<div class="product-item">
 						<div class="row">
 							<div class="col-md-3">
-								<div class="product"
-									style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+								<div class="row">
+									<div class="product"
+										style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+									</div>
 								</div>
 							</div>
 							<div class="col-md-9">
 								<div class="row">
 									<div class="col-md-3 product-name">
 										<h5>Product</h5>
-                                        <p>{{ item.product.name }}</p>
+										<p>{{ item.product.name }}</p>
 									</div>
 									<div class="col-md-3 product-price">
-                                        <h5>Price per unit</h5>
+										<h5>Price per unit</h5>
 										<p>{{ item.product.price }}</p>
 									</div>
 									<div class="col-md-2 product-quantity">
-                                        <h5>Quantity</h5>
-                                        <p>{{ item.quantity }}</p>
-                                    </div>
-                                    <div class="col-md-4 product-quantity-amend">
+										<h5>Quantity</h5>
+										<p>{{ item.quantity }}</p>
+									</div>
+									<div class="col-md-4 product-quantity-amend">
 										<form class="form-inline" action="{% url 'adjust_cart' item.id %}"
 											method="post">
 											{% csrf_token %}
 											<div class="form-group">
 												<label for="example-input-amount" class="sr-only">New amount</label>
 												<input type="number" name="quantity" min="0" max="999" class="form-control">
-												<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                                            </div>
-                                        </form>
+												<button type="submit" class="btn btn-primary">Amend</button>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -55,14 +58,30 @@
 				</div>
 			</div>
 		</div>
+        <hr>
 		{% endfor %}
 		<div class="cart-checkout">
 			<div class="row">
 				<div class="col-md-12">
-					<p>Total price</p>
-					<p><i class="fas fa-euro-sign"></i> {{ total }}</p>
-					<a href="{% url 'checkout' %}" class="btn btn-success"
-						role="button"><i class="far fa-credit-card"></i> Checkout</a>
+					<div class="total-price">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="row">
+									<p>Please check your order and pay by credit card.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-3">
+								<div class="row">
+									<p>Total price</p>
+									<p>&nbsp;<i class="fas fa-euro-sign"></i> {{ total }}</p>
+								</div>
+                                <div class="row">
+									<a href="{% url 'checkout' %}" class="btn btn-primary btn-checkout"
+										role="button"><i class="far fa-credit-card"></i> Checkout</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

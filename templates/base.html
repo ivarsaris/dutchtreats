@@ -11,11 +11,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<!-- font awesome kit -->
-    <script src="https://kit.fontawesome.com/3e88f5feeb.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/3e88f5feeb.js" crossorigin="anonymous"></script>
 	<!-- own CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-    <!-- Favicon -->
-    <link href="{% static 'flag.jpg' %}" rel="shortcut icon" type="image/x-icon" />
+	<!-- Favicon -->
+	<link href="{% static 'flag.jpg' %}" rel="shortcut icon" type="image/x-icon" />
 	<!-- bootstrap JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -26,73 +26,83 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
-    {% block head_js %}
-    {% endblock %}
+	{% block head_js %}
+	{% endblock %}
 </head>
 
 <body>
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light">
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container">
 			<a class="navbar-brand" href="{% url 'index' %}">Dutchtreats</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					{% if user.is_authenticated %}
-					<li class="nav-item active">
-						<a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>Logout</a>
-					</li>
-					{% else %}
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a>
-					</li>
-					{% endif %}
-                    <li class="nav-item">
+				<ul class="nav navbar-nav">
+					<li class="nav-item nav-item-center">
 						<a class="nav-link" href="{% url 'products' %}">Products</a>
 					</li>
-                    <li class="nav-item">
+					<li class="nav-item nav-item-center">
 						<a class="nav-link" href="{% url 'about' %}">About</a>
 					</li>
-                    <li class="nav-item">
+					<li class="nav-item nav-item-center">
 						<a class="nav-link" href="{% url 'contact' %}">Contact</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'view_cart' %}">
-							<i class="fas fa-shopping-cart"></i>cart
-							{% if product_count > 0 %}
-							<label class="badge badge warning">{{ product_count }}</label>
-							{% endif %}
-						</a>
 					</li>
 				</ul>
 			</div>
-		</nav>
-		<h1>{% block page_heading %}{% endblock %}</h1>
-		<hr>
-		{% if messages %}
-		<div>
-			{% for message in messages %}
-
-			{{ message }}
-
-			{% endfor %}
+			<ul class="nav navbar-nav navbar-right">
+				{% if user.is_authenticated %}
+				<li class="nav-item d-none d-lg-block">
+					<a class="nav-link">Welcome {{ user }}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'view_cart' %}">
+						<i class="fas fa-shopping-cart"></i>
+						{% if product_count > 0 %}
+						<label class="badge badge warning">{{ product_count }}</label>
+						{% endif %}
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i></a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a>
+				</li>
+				{% endif %}
+			</ul>
 		</div>
-		{% endif %}
-        
-        <main>        
-		{% block content %}{% endblock %}
-        </main>
+	</nav>
+	<div class="section">
+		<div class="container">
+			<h1>{% block page_heading %}{% endblock %}</h1>
+			<hr>
+			{% if messages %}
+			<div>
+				{% for message in messages %}
 
-		<footer>
-			<p>Made by Ivar</p>
-		</footer>
+				{{ message }}
+
+				{% endfor %}
+			</div>
+			{% endif %}
+
+			<main>
+				{% block content %}{% endblock %}
+			</main>
+
+			<footer>
+				<p>Made by Ivar</p>
+			</footer>
+		</div>
+	</div>
 	</div>
 </body>
 
