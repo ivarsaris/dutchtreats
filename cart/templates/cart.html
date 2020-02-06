@@ -6,34 +6,67 @@
 
 {% block content %}
 
-<div class="row row-flex">
-	{% for item in cart_items %}
-	<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-md-4 display panel panel-default">
-		<div class="panel-body">
-			<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+<section class="shopping-cart">
+	<div class="container">
+		<div class="shopping-cart-heading">
+			<h2>Cart</h2>
+			<p>Your shopping cart.</p>
+		</div>
+		{% for item in cart_items %}
+		<div class="cart-content">
+			<div class="row">
+				<div class="col-12">
+					<div class="product-item">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="product"
+									style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class="row">
+									<div class="col-md-3 product-name">
+										<h5>Product</h5>
+                                        <p>{{ item.product.name }}</p>
+									</div>
+									<div class="col-md-3 product-price">
+                                        <h5>Price per unit</h5>
+										<p>{{ item.product.price }}</p>
+									</div>
+									<div class="col-md-2 product-quantity">
+                                        <h5>Quantity</h5>
+                                        <p>{{ item.quantity }}</p>
+                                    </div>
+                                    <div class="col-md-4 product-quantity-amend">
+										<form class="form-inline" action="{% url 'adjust_cart' item.id %}"
+											method="post">
+											{% csrf_token %}
+											<div class="form-group">
+												<label for="example-input-amount" class="sr-only">New amount</label>
+												<input type="number" name="quantity" min="0" max="999" class="form-control">
+												<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                                            </div>
+                                        </form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="caption">
-				<h3>{{ item.product.name }}</h3>
-				<p class="product-description">{{ product.description }}</p>
-				<p>{{ item.product.price }}</p>
-				<form class="form-inline" action="{% url 'adjust_cart' item.id %}" method="post">
-					{% csrf_token %}
-					<div class="form-group">
-                    <label for="example-input-amount" class="sr-only">New amount</label>
-                        <div class="input-group">Amount</div>
-						<input type="number" name="quantity" min="0" max="999" class="form-control">
-						<div class="input-group-addon">{{ item.quantity }}</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-				</form>
+		</div>
+		{% endfor %}
+		<div class="cart-checkout">
+			<div class="row">
+				<div class="col-md-12">
+					<p>Total price</p>
+					<p><i class="fas fa-euro-sign"></i> {{ total }}</p>
+					<a href="{% url 'checkout' %}" class="btn btn-success"
+						role="button"><i class="far fa-credit-card"></i> Checkout</a>
+				</div>
 			</div>
 		</div>
 	</div>
-	{% endfor %}
-</div>
-<div class="row">
-    <p>Total price</p>
-    <p><span class="glyphicon glyphicon-euro"></span>{{ total }}</p>
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-</div>
+</section>
+
 {% endblock %}
