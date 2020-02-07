@@ -2,8 +2,30 @@
 {% load bootstrap_tags %}
 {% load staticfiles %}
 
+{% block page_title %}Dutchtreats - Contact{% endblock %}
+
+{% block page_heading %}Send us a message!{% endblock %}
+
 {% block content %}
 
-Contact
+<div class="row">
+	<div class="contact-paragraph">
+		<p>Do you have any questions, comments, or suggestions? Please send us a message!</p>
+	</div>
+</div>
+<div class="row">
+	<div class="center-form">
+		<form onsubmit="return sendMail(this);">
+			<input type="text" name="name" class="form form-name" id="name" placeholder="Name" required/>
+			<input type="text" name="email" class="form form-email" id="email" placeholder="Email address" required/>
+			<label for="message" class="formtext">Message for us</label>
+			<textarea name="message" class="form form-message" rows="3" cols="40"></textarea>
+			<div class="formtext">
+				<a href="/" class="btn btn-primary btn-orange"
+					role="button"><i class="fas fa-envelope-open-text"></i>&nbsp Submit message</a>
+			</div>
+		</form>
+	</div>
+</div>
 
 {% endblock %}

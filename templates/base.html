@@ -53,7 +53,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				{% if user.is_authenticated %}
 				<li class="nav-item d-none d-lg-block">
-					<a class="nav-link">Welcome {{ user }}</a>
+					<a class="nav-link nav-welcome">Welcome {{ user }}</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'view_cart' %}">
@@ -82,8 +82,13 @@
 	</nav>
 	<div class="section">
 		<div class="container">
-			<h1>{% block page_heading %}{% endblock %}</h1>
+			<div class="row">
+				<div class="heading">
+					<h1>{% block page_heading %}{% endblock %}</h1>
+				</div>
+			</div>
 			<hr>
+
 			{% if messages %}
 			<div>
 				{% for message in messages %}
@@ -99,10 +104,18 @@
 			</main>
 
 			<footer>
-				<p>Made by Ivar</p>
+				<div class="container">
+					<div class="row">
+						<div class="col-4">
+							<p class="copyright"><i class="far fa-copyright"></i>&nbsp Ivar Saris.</p>
+						</div>
+						<div class="col-8">
+							<p class="footer-text">Made for educational purposes. Please visit my <a href="https://github.com/ivarsaris">GitHub</a> page to see some of my other projects.</i></p>
+						</div>
+					</div>
+				</div>
 			</footer>
 		</div>
-	</div>
 	</div>
 </body>
 
