@@ -19,8 +19,25 @@ main p a {
     text-decoration: underline;
 }
 
+.messages {
+    width: 100%;
+    background-color: #737373;
+    color: #ff4f00;
+    padding-top: 10px;
+}
+
 .password-reset-link {
     margin-top: 10px;
+}
+
+/********** homepage *****************/
+
+.bg {
+    background-image: url('static/images/home2.jpg');
+    width: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+     background-size: cover;
 }
 
 /********** navbar *****************/
@@ -55,10 +72,6 @@ main p a {
         margin-left: 50px;
         font-size: 1.5em;
     }
-}
-
-.messages {
-    background-color: #adb5bd;
 }
 
 footer {
@@ -133,11 +146,26 @@ caption p {
 
 .panel-body {
     height: 100%;
-    border: 1px solid #ddd;
+    border: 2px solid black;
 }
 
 .product-description {
     min-height: 40px;
+}
+
+.product-body {
+    text-align: center;
+    height: 100%;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.product-body .form-control {
+    width: 110px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #212529;
+    margin-bottom: 10px;
 }
 
 /********** cart.html *****************/

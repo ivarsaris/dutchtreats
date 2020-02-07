@@ -15,7 +15,7 @@
 	<!-- own CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 	<!-- Favicon -->
-	<link href="{% static 'flag.jpg' %}" rel="shortcut icon" type="image/x-icon" />
+	<link href="{% static 'images/flag.jpg' %}" rel="shortcut icon" type="image/x-icon" />
 	<!-- bootstrap JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -81,27 +81,36 @@
 		</div>
 	</nav>
 	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="heading">
-					<h1>{% block page_heading %}{% endblock %}</h1>
+        {% if messages %}
+		<div class="messages">
+			<div class="container">
+				<div class="row">
+					<div>
+						{% for message in messages %}
+
+						<h3>{{ message }}</h3>
+
+						{% endfor %}
+					</div>
 				</div>
 			</div>
-			<hr>
+		</div>
+        {% endif %}
+	</div>
+    <div class="section">
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					<div class="heading">
+						<h1>{% block page_heading %}{% endblock %}</h1>
+					</div>
+				</div>
+				<hr>
 
-			{% if messages %}
-			<div>
-				{% for message in messages %}
-
-				{{ message }}
-
-				{% endfor %}
+				<main>
+					{% block content %}{% endblock %}
+				</main>
 			</div>
-			{% endif %}
-
-			<main>
-				{% block content %}{% endblock %}
-			</main>
 
 			<footer>
 				<div class="container">
@@ -110,7 +119,9 @@
 							<p class="copyright"><i class="far fa-copyright"></i>&nbsp Ivar Saris.</p>
 						</div>
 						<div class="col-8">
-							<p class="footer-text">Made for educational purposes. Please visit my <a href="https://github.com/ivarsaris">GitHub</a> page to see some of my other projects.</i></p>
+							<p class="footer-text">Made for educational purposes. Please visit my <a
+									href="https://github.com/ivarsaris">GitHub</a> page to see some of my other
+								projects.</i></p>
 						</div>
 					</div>
 				</div>
