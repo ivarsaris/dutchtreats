@@ -4,15 +4,12 @@
 
 {% block title %}Dutchtreats - Cart{% endblock %}
 
+{% block page_heading %}{{ user }}'s cart{% endblock %}
+
 {% block content %}
 
 <section class="shopping-cart">
 	<div class="container">
-		<div class="shopping-cart-heading">
-			<h2>Cart</h2>
-			<p>Your shopping cart.</p>
-		</div>
-        <hr>
 		{% for item in cart_items %}
 		<div class="cart-content">
 			<div class="row">
@@ -28,19 +25,19 @@
 							</div>
 							<div class="col-md-9">
 								<div class="row">
-									<div class="col-md-3 product-name">
+									<div class="col-sm-6 col-md-3 product-name">
 										<h5>Product</h5>
 										<p>{{ item.product.name }}</p>
 									</div>
-									<div class="col-md-3 product-price">
+									<div class="col-sm-6 col-md-3 product-price">
 										<h5>Price per unit</h5>
 										<p>{{ item.product.price }}</p>
 									</div>
-									<div class="col-md-2 product-quantity">
+									<div class="col-sm-6 col-md-2 product-quantity">
 										<h5>Quantity</h5>
 										<p>{{ item.quantity }}</p>
 									</div>
-									<div class="col-md-4 product-quantity-amend">
+									<div class="col-sm-6 col-md-4 product-quantity-amend">
 										<form class="form-inline" action="{% url 'adjust_cart' item.id %}"
 											method="post">
 											{% csrf_token %}
@@ -76,8 +73,8 @@
 									<p>&nbsp;<i class="fas fa-euro-sign"></i> {{ total }}</p>
 								</div>
                                 <div class="row">
-									<a href="{% url 'checkout' %}" class="btn btn-primary btn-checkout"
-										role="button"><i class="far fa-credit-card"></i> Checkout</a>
+									<a href="{% url 'checkout' %}" class="btn btn-primary btn-orange"
+										role="button"><i class="far fa-credit-card"></i>&nbsp Checkout</a>
 								</div>
 							</div>
 						</div>

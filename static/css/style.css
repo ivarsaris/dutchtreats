@@ -2,15 +2,58 @@ body {
     font-family: Arial;
 }
 
+a {
+    color: black;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #737373;
+}
+
+.heading {
+    margin-top: 20px;
+}
+
+main p a {
+    text-decoration: underline;
+}
+
+.password-reset-link {
+    margin-top: 10px;
+}
+
 /********** navbar *****************/
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #737373;
+}
+
+.navbar-light .navbar-nav .nav-welcome {
+    color: black;
+}
+
+.navbar-light .navbar-nav .nav-welcome:hover {
+    color: black;
+}
 
 .navbar {
     background-color:#ff4f00;
 }
 
+.navbar-brand {
+    font-size: 2em;
+}
+
 @media only screen and (min-width: 992px) {
     .nav-item-center {
         margin-left: 50px;
+        font-size: 1.5em;
     }
 }
 
@@ -19,11 +62,28 @@ body {
 }
 
 footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ff4f00;
+    color: black;
+    padding-top: 10px;
+    font-size: 0.8em;
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 576px) {
+    footer {
+        font-size: 0.6em;
+    }
+}
+
+footer .footer-text {
+    text-align: center;
 }
 
 .icon-bar {
@@ -82,7 +142,45 @@ caption p {
 
 /********** cart.html *****************/
 
-.btn-checkout {
+.btn-orange {
     background-color: #ff4f00;
-    border-color: none;
+    border: none;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-orange:hover {
+    background-color: #ff824d;
+}
+
+/********** contact.html *****************/
+
+.form {
+  width: 60%;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.formtext {
+  width: 60%;
+  color: #343a40c9;
+}
+
+@media screen and (max-width: 992px) {
+  .form, .formtext {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .form, .formtext {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
