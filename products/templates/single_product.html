@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load static from staticfiles %}
+
+{% block title %}Dutchtreats - Products{% endblock %}
+
+{% block page_heading %}All products{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-12 col-lg-6">
+		<div class="product-image">
+			<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+		</div>
+	</div>
+	<div class="col-12 col-lg-6">
+		<div class="product-content">
+            <div class="row">
+                <div class="col-12">
+                    <h3>{{ item.product.name }}</h3>
+                </div>
+                <div class="col-12">
+                    <h5>Description</h5>
+                    <p>{{ item.product.description }}</p>
+                </div>
+                <div class="col-12">
+                    <h5>Price</h5>
+                    <p>{{ item.product.price }}</p>
+                </div>
+                <div class="col-12">
+                    <button>add to cart</button>
+                </div>
+            </div>
+		</div>
+	</div>
+    <div class="col-12">
+        
+    </div>
+</div>
+
+{% endblock %}

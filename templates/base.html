@@ -26,6 +26,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
 	{% block head_js %}
 	{% endblock %}
 </head>
@@ -81,7 +82,7 @@
 		</div>
 	</nav>
 	<div class="section">
-        {% if messages %}
+		{% if messages %}
 		<div class="messages">
 			<div class="container">
 				<div class="row">
@@ -95,9 +96,9 @@
 				</div>
 			</div>
 		</div>
-        {% endif %}
+		{% endif %}
 	</div>
-    <div class="section">
+	<div class="section">
 		<div class="content">
 			<div class="container">
 				<div class="row">
@@ -116,11 +117,12 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-4">
-							<p class="copyright"><i class="far fa-copyright"></i>&nbsp Ivar Saris.</p>
+							<p class="copyright"><i class="far fa-copyright"></i> Ivar Saris 2020</p>
 						</div>
 						<div class="col-8">
 							<p class="footer-text">Made for educational purposes. Please visit my <a
-									href="https://github.com/ivarsaris">GitHub</a> page to see some of my other
+									href="https://github.com/ivarsaris" target="_blank">GitHub</a> page to see some of
+								my other
 								projects.</i></p>
 						</div>
 					</div>
