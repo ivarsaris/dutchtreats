@@ -1,5 +1,13 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: Arial;
+    /* footer height is 55px */
+    margin: 0 0 55px;
+    padding-bottom: 25px;
 }
 
 a {
@@ -9,6 +17,7 @@ a {
 
 a:hover {
     color: #737373;
+    text-decoration: none;
 }
 
 .heading {
@@ -75,14 +84,16 @@ main p a {
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 55px;
     background-color: #ff4f00;
     color: black;
     padding-top: 10px;
     font-size: 0.8em;
+    margin-top: 50px;
 }
 
 footer a {
@@ -151,13 +162,13 @@ caption p {
 
 .product-description {
     min-height: 40px;
-}
+} 
 
 .product-body {
     text-align: center;
     height: 100%;
     border: 2px solid black;
-    margin-top: 10px;
+    margin-bottom: 1em;
 }
 
 .product-body .form-control {
@@ -165,8 +176,20 @@ caption p {
     text-align: center;
     display: inline-block;
     border: 1px solid #212529;
-    margin-bottom: 10px;
 }
+
+.product-colums {
+    margin-bottom: 1.5rem!important;
+}
+
+@media screen and (min-width: 992px) {
+    .col-lg-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    }
+}
+
 
 /********** cart.html *****************/
 
@@ -180,6 +203,15 @@ caption p {
 
 .btn-orange:hover {
     background-color: #ff824d;
+}
+
+/* 
+change amount in cart max-width
+to make space for price
+ */
+
+.new-amount-input {
+    width: 50px;
 }
 
 /********** contact.html *****************/

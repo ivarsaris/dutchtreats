@@ -4,6 +4,16 @@
 
 {% block page_title %}Dutchtreats - Contact{% endblock %}
 
+{% block head_js %}
+<!-- Email js, used in contact form(contact.html template) -->
+<script type="text/javascript">
+	(function(){
+      emailjs.init("user_cVgLoodOgPqYs4Rd8I7TZ");
+   })();
+</script>
+<script type="text/javascript" src="{% static 'js/email.js' %}"></script>
+{% endblock %}
+
 {% block page_heading %}Send us a message!{% endblock %}
 
 {% block content %}
@@ -20,9 +30,8 @@
 			<input type="text" name="email" class="form form-email" id="email" placeholder="Email address" required/>
 			<label for="message" class="formtext">Message for us</label>
 			<textarea name="message" class="form form-message" rows="3" cols="40"></textarea>
-			<div class="formtext">
-				<a href="/" class="btn btn-primary btn-orange"
-					role="button"><i class="fas fa-envelope-open-text"></i>&nbsp Submit message</a>
+			<div class="form-submit">
+				<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-envelope-open-text"></i> Submit message</button>
 			</div>
 		</form>
 	</div>
