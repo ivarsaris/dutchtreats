@@ -24,7 +24,7 @@
 	{% for product in products %}
 	<div class="col-12 col-md-6 col-lg-3 product-colums">
 		<div class="product-body">
-			<a href="/">
+			<a href="{% url 'product' product.id %}">
 				<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
 				<h3>{{ product.name }}</h3>
 				<p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>

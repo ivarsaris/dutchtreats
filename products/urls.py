@@ -1,8 +1,8 @@
-from django.conf.urls import url, include
-from .views import all_products, single_product
+from django.conf.urls import url
+from .views import all_products, product_detail
 
 
 urlpatterns = [
     url(r'^$', all_products, name='products'),
-    url(r'^product$', single_product, name='product')
+    url(r'^(?P<pk>\d+)/$', product_detail, name='product'),
 ]
