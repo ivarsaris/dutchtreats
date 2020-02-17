@@ -244,3 +244,20 @@ to make space for price
     margin-right: 5%;
   }
 }
+
+/********** product.html *****************/
+
+.product-content-piece {
+    margin-top: 20px;
+    padding-left: 0;
+}
+
+.product-review {
+    margin-top: 50px;
+}
+
+@media screen and (min-width: 992px) {
+    .product-review {
+    margin-top: 100px;
+  }
+}
