@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% load staticfiles %}
+{% load mathfilters %}
 
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2"></script>
@@ -10,46 +11,79 @@
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
-{% block content %}
-<div class="row row-flex">
-	{% for item in cart_items %}
-	<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-		<div class="panel-body">
-			<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+{% block page_heading %}Checkout{% endblock %}
 
-			<div class="caption">
-				<h3>{{ item.product.name }}</h3>
-				<p class="product-description">{{ item.product.description }}</p>
-				<p>{{ item.quantity }}</p>
-				<p>{{ item.product.price }}</p>
+{% block content %}
+
+<div class="row">
+	<div class="col-12 col-md-6">
+		<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+			<legend>
+				<h3>Payment Details</h3>
+			</legend>
+
+			<div id="credit-card-errors" style="display: none;">
+				<div id="alert-message block-message error" id="stripe-error-message"></div>
+			</div>
+
+			<div class="form-group">
+				{{ order_form | as_bootstrap }}
+			</div>
+
+			<div class="form-group">
+				{{ payment_form | as_bootstrap }}
+			</div>
+
+			{% csrf_token %}
+			<div class="form-group">
+				<input class=" btn btn-primary btn-orange" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+            </div>
+		</form>
+	</div>
+	<div class="col-12 col-md-6">
+		<div class="order-summary">
+			<h3>Order summary</h3>
+		</div>
+		<div class="product-item">
+			<div class="row">
+				{% for item in cart_items %}
+				<div class="col-md-4">
+					<div class="row">
+						<div class="product-checkout" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-6 col-md-8">
+							<h5>{{ item.product.name }}</h5>
+							<h6>Quantity: {{ item.quantity }}</h6>
+						</div>
+						<div class="col-6 col-md-4">
+							{% with quantity=item.quantity price=item.product.price %}
+							<p><i class="fas fa-euro-sign"></i> {{ quantity|mul:price }}</p>
+							{% endwith %}
+						</div>
+					</div>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
+        <div class="total-price">
+			<div class="row">
+				<div class="col-12 col-md-9">
+					<div class="row">
+						<h5>Total price</h5>
+					</div>
+				</div>
+				<div class="col-12 col-md-3">
+					<p><i class="fas fa-euro-sign"></i> {{ total }}</p>
+				</div>
+			</div>
+		</div>
+
 	</div>
-	{% endfor %}
 </div>
-<div class="row">
-	<p>Total</p>
-	<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-</div>
 
-<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-	<legend>Payment Details</legend>
 
-	<div id="credit-card-errors" style="display: none;">
-		<div id="alert-message block-message error" id="stripe-error-message"></div>
-	</div>
-
-	<div class="form-group col-md-6">
-		{{ order_form | as_bootstrap }}
-	</div>
-
-	<div class="form-group col-md-6">
-		{{ payment_form | as_bootstrap }}
-	</div>
-
-	{% csrf_token %}
-	<div class="form-group col-md-12">
-		<input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-    </div>
-</form>
 {% endblock %}
