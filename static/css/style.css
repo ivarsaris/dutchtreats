@@ -257,6 +257,11 @@ to make space for price
     margin-bottom: 1em;
 }
 
+.single-product-image {
+    width: 300px;
+    height: 300px;
+}
+
 .product-content-piece {
     margin-top: 20px;
     padding-left: 0;
