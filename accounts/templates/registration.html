@@ -9,15 +9,14 @@
 {% block content %}
 
 <div class="row">
-	<p>If you already have an account, you can <a href="{% url 'login' %}">log in</a>.</p>
-</div>
-
-<div class="row">
-	<form method="POST">
-		{% csrf_token %}
-		{{ registration_form | as_bootstrap }}
-		<button type='submit' class="btn btn-primary">Register</button>
-	</form>
+	<div class="center-form">
+		<p>If you already have an account, you can <a href="{% url 'login' %}">log in</a>.</p>
+		<form method="POST">
+			{% csrf_token %}
+			{{ registration_form | as_bootstrap }}
+			<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-user-plus"></i> Register</button>
+		</form>
+	</div>
 </div>
 
 {% endblock %}

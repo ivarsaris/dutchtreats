@@ -9,18 +9,17 @@
 {% block content %}
 
 <div class="row">
-    <p>If you don't have an account yet, you can <a href="{% url 'registration' %}">register</a>.</p>
-</div>
-
-<div class="row">
-	<form method="POST">
-		{% csrf_token %}
-		{{ login_form | as_bootstrap }}
-		<button type='submit' class="btn btn-primary">Login</button>
-	</form>
-</div>
-<div class="row password-reset-link">
-	<p><a href="{% url 'password_reset' %}">Reset my password</a></p>
+	<div class="center-form">
+		<p>If you don't have an account yet, please <a href="{% url 'registration' %}">register</a>.</p>
+		<form method="POST">
+			{% csrf_token %}
+			{{ login_form | as_bootstrap }}
+			<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-sign-in-alt"></i> Login</button>
+		</form>
+		<div class="password-reset-link">
+			<p><a href="{% url 'password_reset' %}">Reset my password</a></p>
+		</div>
+	</div>
 </div>
 
 {% endblock %}

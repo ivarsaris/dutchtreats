@@ -7,18 +7,56 @@ from django.core.exceptions import ValidationError
 class UserLoginform(forms.Form):
     """form for user to log in"""
 
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'style': 'border: 2px solid black; border-radius: 4px;'
+        }
+    )
+)
+
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'style': 'border: 2px solid black; border-radius: 4px;'
+        }
+    )
+)
 
 
 class UserRegistrationForm(UserCreationForm):
     """form to register a new user"""
 
-    password1 = forms.CharField(label="Password",
-                                widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Confirm password",
-                                widget=forms.PasswordInput)
+    email = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'style': 'border: 2px solid black; border-radius: 4px;'
+        }
+    )
+)
 
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'style': 'border: 2px solid black; border-radius: 4px;'
+        }
+    )
+)
+
+    password1 = forms.CharField(label="Password",
+                                widget=forms.PasswordInput(
+                                    attrs={
+                'style': 'border: 2px solid black; border-radius: 4px;'
+        }
+    )
+)
+    password2 = forms.CharField(label="Confirm password",
+                                widget=forms.PasswordInput(
+                                    attrs={
+                'style': 'border: 2px solid black; border-radius: 4px;'
+        }
+    )
+)
     class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2']
