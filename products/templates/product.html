@@ -8,9 +8,19 @@
 {% block content %}
 
 <div class="row">
+	<div class="col-12">
+		<div class="back-to-products-link">
+			<a href="{% url 'products' %}" class="btn btn-primary btn-orange"
+				role="button"><i class="fas fa-arrow-alt-circle-left"></i> Back to products</a>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-12 col-lg-6">
 		<div class="product-image">
-			<div class="product single-product-image" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+			<div class="product single-product-image"
+				style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
 		</div>
 	</div>
 	<div class="col-12 col-lg-6">
@@ -25,11 +35,13 @@
 				<div class="col-12 product-content-piece">
 					<p>{{ product.description }}</p>
 				</div>
-				<form action="{% url 'add_to_cart' product.id %}" method="post" class="product-content-piece">
-					{% csrf_token %}
-					<input type="number" name="quantity" min="1" max="999" class="form-control" placeholder="Amount">
-					<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
-				</form>
+				<div class="col-12 product-content-piece">
+					<form action="{% url 'add_to_cart' product.id %}" method="post" class="product-content-piece">
+						{% csrf_token %}
+						<input type="number" name="quantity" min="1" max="999" class="form-control" value=1>
+						<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -37,10 +49,37 @@
 	<div class="col-12">
 		<div class="product-review">
 			<h2>Reviews</h2>
-            <h5>Sharon:</h5>
-			<p>The best treat ever, I recommend it.</p>
+		</div>
+		{% for review in product.reviews.all %}
+		<div class="row">
+			<div class="col-12 review">
+				<div class="review-username">
+					<h4>{{ review.user.username }}</h4>
+				</div>
+				<div class="review-content">
+					<p>{{ review.content }}</p>
+				</div>
+				{% if user.is_authenticated and user == review.user or user.is_superuser %}
+				<a class="btn btn-primary" href="{% url 'delete_review' review.id %}" role="button">Delete review</a>
+				{% endif %}
+			</div>
+		</div>
+
+		{% endfor %}
+
+	</div>
+
+	<div class="col-12">
+		<div class="review-form">
+			<form action="{% url 'new_review' product.pk %}" method="POST" enctype="multipart/form-data"
+				class='post-form' id='form' label='Write your own review.'>
+				{% csrf_token %}
+				{{ form | as_bootstrap }}
+				<span class="input-group-btn"><button type="submit" id= 'post-btn' class='btn-primary btn-orange'><i class="fas fa-sticky-note"></i> Post review</button></span>
+			</form>
 		</div>
 	</div>
+
 </div>
 
 {% endblock %}
