@@ -35,14 +35,11 @@
 										<p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
 									</div>
 									<div class="col-sm-6 col-md-3 product-quantity">
-										<h5>Quantity</h5>
-										<p>{{ item.quantity }}</p>
 										<form class="form-inline" action="{% url 'adjust_cart' item.id %}"
 											method="post">
 											{% csrf_token %}
 											<div class="form-group new-amount-input">
-												<label for="example-input-amount" class="sr-only">New amount</label>
-												<input type="number" name="quantity" min="0" max="999" class="form-control">
+												<input type="number" name="quantity" min="0" max="999" class="form-control" value={{ item.quantity }}>
 												<button type="submit" class="btn btn-primary">Amend</button>
 											</div>
 										</form>
