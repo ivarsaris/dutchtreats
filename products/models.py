@@ -16,8 +16,9 @@ class Product(models.Model):
 
 class Review(models.Model):
     """model to write review for a product"""
-    post = models.ForeignKey('products.Product', related_name='reviews')
+    post = models.ForeignKey(Product, related_name='reviews')
     user = models.ForeignKey(User, related_name='reviews', null=False, default=1, on_delete=models.SET_DEFAULT)
+    title = models.CharField(max_length=200, default='my review')
     content = models.TextField()
     review_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
 
