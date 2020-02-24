@@ -8,7 +8,17 @@
 
 {% block content %}
 
-<p>Name: {{ profile.username }}</p>
-<p>Email: {{ profile.email }}</p>
+<img src="{{ user.profile.image.url }}" alt="Profile image">
+<p>Name: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+
+<div class="center-form">
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ UserUpdate_Form | as_bootstrap }}
+        {{ ProfileUpdate_Form | as_bootstrap }}
+		<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-user-edit"></i> Update profile</button>
+	</form>
+</div>
 
 {% endblock %}
