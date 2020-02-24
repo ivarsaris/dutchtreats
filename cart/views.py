@@ -1,19 +1,29 @@
 from django.shortcuts import render, reverse, redirect
+from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def view_cart(request):
     """render the cart contents page"""
     return render(request, 'cart.html')
 
+@login_required
 def add_to_cart(request, id):
     """add specific amount of a product to the cart"""
-    quantity = int(request.POST.get('quantity'))
+    if not request.user.is_authenticated:
+        # redirect user to login page if not authenticated
+        return redirect('login')
+        messages.warning(request, "You have to be logged in to add products to a cart.")
+    
+    else:
+        quantity = int(request.POST.get('quantity'))
 
-    cart = request.session.get('cart', {})
-    cart[id] = cart.get(id, quantity)
+        cart = request.session.get('cart', {})
+        cart[id] = cart.get(id, quantity)
 
-    request.session['cart'] = cart
-    return redirect(reverse('products'))
+        request.session['cart'] = cart
+        return redirect(reverse('products'))
+
 
 def adjust_cart(request, id):
     """adjust amount of product in the cart by specified amount"""

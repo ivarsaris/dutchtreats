@@ -18,18 +18,25 @@
 
 {% block content %}
 
-<div class="row center-form">
-	<div class="contact-paragraph">
-		<p>Do you have any questions, comments, or suggestions? Please send us a message!</p>
-	</div>
-	<form onsubmit="return sendMail(this);">
-		<input type="text" name="name" class="form form-name" id="name" placeholder="Name" required/>
-		<input type="text" name="email" class="form form-email" id="email" placeholder="Email address" required/>
-		<textarea name="message" class="form form-message" placeholder='message' rows="3" cols="40"></textarea>
-		<div class="form-submit">
-			<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-envelope-open-text"></i> Submit message</button>
+<section>
+	<div class="container">
+        <hr>
+		<div class="row">
+			<div class="center-form">
+				<div class="contact-paragraph">
+					<p>Do you have any questions, comments, or suggestions? Please send us a message!</p>
+				</div>
+				<form onsubmit="return sendMail(this);">
+					<input type="text" name="name" class="form form-name" id="name" placeholder="Name" required/>
+					<input type="text" name="email" class="form form-email" id="email" placeholder="Email address" required/>
+					<textarea name="message" class="form form-message" placeholder='message' rows="3" cols="40"></textarea>
+					<div class="form-submit">
+						<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-envelope-open-text"></i> Submit message</button>
+					</div>
+				</form>
+			</div>
 		</div>
-	</form>
-</div>
+	</div>
+</section>
 
 {% endblock %}
