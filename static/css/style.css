@@ -27,6 +27,7 @@ a:hover {
 
 .heading {
     margin-top: 20px;
+    margin-left: 14px;
 }
 
 .heading-hr {
@@ -43,10 +44,6 @@ main p a {
     color: #ff4f00;
     padding-top: 10px;
     text-align: center;
-}
-
-.password-reset-link {
-    margin-top: 10px;
 }
 
 .btn-orange {
@@ -95,18 +92,15 @@ main p a {
     }
 }
 
+/* get number close to the cart icon
+in the navbar */
 .badge {
-    padding-left: 9px;
+    padding-left: 5px;
     padding-right: 9px;
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
     border-radius: 9px;
 }
-/* 
-.label-warning[href],
-.badge-warning[href] {
-    background-color: #c67605;
-} */
 
 /********** footer *****************/
 
@@ -136,12 +130,8 @@ footer a {
 footer .footer-text {
     text-align: center;
 }
-/* 
-.icon-bar {
-    background-color: #fff;
-} */
 
-/********** homepage *****************/
+/********** homepage(index.html) *****************/
 
 .index-background {
     width: 100%;
@@ -152,12 +142,17 @@ footer .footer-text {
     margin-top: 2em;
 }
 
-/********** password reset confirmation *****************/
+/********** password reset *****************/
+
+.password-reset-link {
+    margin-top: 10px;
+}
 
 .accountform {
     padding-top: 20px;
 }
 
+/********** products page *****************/
 
 .product {
     background-size: contain;
@@ -194,53 +189,7 @@ footer .footer-text {
     }
 }
 
-
-/********** cart.html *****************/
-
-/* 
-change amount in cart max-width
-to make space for price
- */
-
-.new-amount-input {
-    width: 50px;
-}
-
-/********** contact.html *****************/
-
-.center-form {
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
-.form {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    display: inline-block;
-    border: 2px solid black;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-@media screen and (max-width: 992px) {
-  .center-form {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .center-form {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-}
-
-/********** product.html *****************/
+/********** single product page *****************/
 
 .search {
     margin-bottom: 1em;
@@ -277,6 +226,8 @@ to make space for price
 @media screen and (max-width: 992px) {
   .review-form {
     width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 
@@ -295,6 +246,50 @@ to make space for price
 
 .review-username {
     color: #ff4f00;
+}
+
+/********** cart.html *****************/
+
+/* 
+change amount in cart max-width
+to make space for price
+ */
+.new-amount-input {
+    width: 50px;
+}
+
+/********** contact.html *****************/
+
+.form {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.center-form {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+@media screen and (max-width: 992px) {
+  .center-form {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .center-form {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
 /********** about.html *****************/
