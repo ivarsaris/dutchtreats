@@ -7,13 +7,12 @@ def view_cart(request):
     """render the cart contents page"""
     return render(request, 'cart.html')
 
-@login_required
 def add_to_cart(request, id):
     """add specific amount of a product to the cart"""
     if not request.user.is_authenticated:
         # redirect user to login page if not authenticated
+        messages.warning(request, "You have to be logged in to add products to your cart.")
         return redirect('login')
-        messages.warning(request, "You have to be logged in to add products to a cart.")
     
     else:
         quantity = int(request.POST.get('quantity'))

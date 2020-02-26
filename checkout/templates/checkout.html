@@ -4,6 +4,7 @@
 {% load mathfilters %}
 
 {% block head_js %}
+<!-- stripe javascript for handling payments -->
 <script type="text/javascript" src="https://js.stripe.com/v2"></script>
 <script type="text/javascript">
 	Stripe.setPublishableKey('{{ publishable }}')
@@ -33,7 +34,7 @@
 					<div id="credit-card-errors" style="display: none;">
 						<div id="alert-message block-message error" id="stripe-error-message"></div>
 					</div>
-
+                    <!-- order and payment form displayed together. Looks like one form. -->
 					<div class="form-group">
 						{{ order_form | as_bootstrap }}
 					</div>

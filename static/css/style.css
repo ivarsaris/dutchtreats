@@ -58,6 +58,32 @@ main p a {
     background-color: #ff824d;
 }
 
+.btn-yellow {
+    background-color: yellow;
+    color: black;
+    border: none;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-yellow:hover {
+    background-color: #d6d606;
+    color: black;
+}
+
+.btn-red {
+    background-color: red;
+    border: none;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-red:hover {
+    background-color: #ff5f5f;
+}
+
 /********** navbar *****************/
 
 .navbar-light .navbar-nav .nav-link {
@@ -221,6 +247,8 @@ footer .footer-text {
 .review-form {
     margin-top: 50px;
     width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 @media screen and (max-width: 992px) {
@@ -246,6 +274,10 @@ footer .footer-text {
 
 .review-username {
     color: #ff4f00;
+}
+
+.control-label {
+    display: none;
 }
 
 /********** cart.html *****************/
@@ -340,6 +372,7 @@ to make space for price
 
 .profile-image {
     width: 400px;
+    max-width: 100%;
     height: auto;
 }
 
