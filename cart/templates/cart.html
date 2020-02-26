@@ -30,6 +30,8 @@
 					</div>
 					<div class="col-6 col-md-3 product-quantity">
 						<form class="form-inline" action="{% url 'adjust_cart' item.id %}" method="post">
+                        <!-- user can change amount of a product in the cart. price and total price
+                        will be updated automatically -->
 							{% csrf_token %}
 							<div class="form-group new-amount-input">
 								<input type="number" name="quantity" min="0" max="999" class="form-control" value={{ item.quantity }}>
@@ -39,6 +41,7 @@
 					</div>
 					<div class="col-6 col-md-3 product-total-price">
 						<h5>Price</h5>
+                        <!-- price is product price * product amount -->
 						{% with quantity=item.quantity price=item.product.price %}
 						<p><i class="fas fa-euro-sign"></i> {{ quantity|mul:price }}</p>
 						{% endwith %}

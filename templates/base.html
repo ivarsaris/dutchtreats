@@ -62,8 +62,10 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'view_cart' %}">
 						<i class="fas fa-shopping-cart"></i>
-                        <!-- amount of products in cart is shown next to cart,
-                        if there are items in cart -->
+                        <!-- 
+                        amount of products in cart is shown next to cart,
+                        if there are items in cart 
+                        -->
 						{% if product_count > 0 %}
 						<label class="badge warning">{{ product_count }}</label>
 						{% endif %}
@@ -113,8 +115,10 @@
 				</div>
 			</div>
 		</section>
-        <!-- the content on every template is inserted here. Each content 
-        section start with <section> -->
+        <!-- 
+        the content on every template is inserted here. Each content 
+        section start with <section> 
+        -->
 		{% block content %}{% endblock %}
 	</main>
 

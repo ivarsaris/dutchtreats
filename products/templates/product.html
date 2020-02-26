@@ -40,12 +40,14 @@
 								class="product-content-piece">
 								{% csrf_token %}
 								<input type="number" name="quantity" min="1" max="999" class="form-control" value=1>
-								<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-yellow"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
+								<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-12">
 				<hr>
 			</div>
@@ -53,42 +55,50 @@
 				<div class="product-review">
 					<h2>Reviews</h2>
 				</div>
-				{% for review in product.reviews.all %}
-				<div class="row review">
-					<div class="col-12">
-						<div class="review-username">
-							<h4>{{ review.user.username }}</h4>
-							<hr>
-						</div>
-						<div class="review-content">
-							<p>{{ review.content }}</p>
-						</div>
-						{% if user.is_authenticated and user == review.user or user.is_superuser %}
-						<form action="{% url 'delete_review' review.id %}" method="POST">
-                            {% csrf_token %}
-							<span class="input-group-btn"><button type="submit" id='post-btn{{ forloop.counter }}' class='btn btn-primary btn-red'><i class="fas fa-trash-alt"></i> Delete review</button></span>
-						</form>
-						<!-- <a class="btn btn-primary" href="{% url 'delete_review' review.id %}" role="button">Delete -->
-						<!-- review</a> -->
-						{% endif %}
+			</div>
+			{% for review in product.reviews.all %}
+			<div class="col-12 col-lg-6 review-column">
+				<div class="review-body">
+					<div class="review-username">
+						<h4>{{ review.user.username }}</h4>
+						<hr>
 					</div>
+					<div class="review-content">
+						<p>{{ review.content }}</p>
+					</div>
+					<!-- 
+                    delete button for a specific review is only displayed if the user
+                    that is logged in is the user that wrote the review. Or if the 
+                    user is admin
+                    -->
+					{% if user.is_authenticated and user == review.user or user.is_superuser %}
+					<form action="{% url 'delete_review' review.id %}" method="POST">
+						{% csrf_token %}
+						<span class="input-group-btn"><button type="submit" id='post-btn{{ forloop.counter }}' class='btn btn-primary btn-red'><i class="fas fa-trash-alt"></i> Delete review</button></span>
+					</form>
+					{% endif %}
 				</div>
-
-				{% endfor %}
-
 			</div>
 
-			<div class="col-12">
-				<div class="review-form">
-					<form action="{% url 'new_review' product.pk %}" method="POST" enctype="multipart/form-data"
-						class='post-form' id='form' label='Write your own review.'>
-						{% csrf_token %}
-						{{ form | as_bootstrap }}
-                        <span class="input-group-btn"><button type="submit" id='post-btn' class="btn btn-primary btn-orange"><i class="fas fa-sticky-note"></i> Post review</button></span>
-					</form>
-				</div>
+			{% endfor %}
+
+		</div>
+
+		<div class="col-12">
+			<div class="review-form">
+				<!-- 
+                    user can only write review if they're logged in. If not,
+                    they're redirected to the login page. 
+                 -->
+				<form action="{% url 'new_review' product.pk %}" method="POST" enctype="multipart/form-data"
+					class='post-form' id='form' label='Write your own review.'>
+					{% csrf_token %}
+					{{ form | as_bootstrap }}
+					<span class="input-group-btn"><button type="submit" id='post-btn' class="btn btn-primary btn-orange"><i class="fas fa-sticky-note"></i> Post review</button></span>
+				</form>
 			</div>
 		</div>
+	</div>
 	</div>
 </section>
 

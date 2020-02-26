@@ -17,9 +17,11 @@
 					<img src="{{ user.profile.image.url }}" class="profile-image" alt="Profile image">
 					<form method="POST" class="profile-form" enctype="multipart/form-data">
 						{% csrf_token %}
-                        <!-- UserUpdateForm and ProfileUpdateForm from forms.py, displayed under 
+                        <!-- 
+                            UserUpdateForm and ProfileUpdateForm from forms.py, displayed under 
                         each other so it looks like one form. This was neccessary for the image to
-                        change correctly.  -->
+                        change correctly.  
+                        -->
 						{{ UserUpdate_Form | as_bootstrap }}
 						{{ ProfileUpdate_Form | as_bootstrap }}
 						<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-user-edit"></i> Update profile</button>

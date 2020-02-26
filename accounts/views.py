@@ -30,10 +30,12 @@ def login(request):
     if request.method == "POST":
         login_form = UserLoginform(request.POST)
 
+        """"save user's username and password to database""""
         if login_form.is_valid():
             user = auth.authenticate(username=request.POST['username'],
                                     password=request.POST['password'])
 
+            """"successfull login redirects to homepage and displays successfull login message""""
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully logged in.")
@@ -62,9 +64,14 @@ def registration(request):
         if registration_form.is_valid():
             registration_form.save()
 
+            """save users username and password to database"""
             user = auth.authenticate(username=request.POST['username'],
                                     password=request.POST['password1'])
 
+            """
+            redirect to homepage and give message that
+            registration was successful
+            """
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "Your registration was successful.")
@@ -84,16 +91,19 @@ def registration(request):
 def user_profile(request):
     """User profile page"""
 
+    """retrieve user"""
     user = User.objects.get(email=request.user.email)
 
     if request.method == 'POST':
 
-        # post forms if new data is given
+        """"post forms if new data is given""""
         UserUpdate_Form = UserUpdateForm(request.POST, instance=request.user)
         ProfileUpdate_Form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
 
+        """check if both forms are valid"""
         if UserUpdate_Form.is_valid() and ProfileUpdate_Form.is_valid():
-
+            
+            """update user and profile"""
             UserUpdate_Form.save()
             ProfileUpdate_Form.save()
 
@@ -101,7 +111,8 @@ def user_profile(request):
             return redirect('profile')
 
     else:
-        # keep data as is if no new data is given
+        
+        """"keep data as is if no new data is given""""
         UserUpdate_Form = UserUpdateForm(instance=request.user)
         ProfileUpdate_Form = ProfileUpdateForm(instance=request.user.profile)
 
