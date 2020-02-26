@@ -9,21 +9,29 @@ from products.models import Product
 import stripe
 
 
-# Create your views here.
+"""retrieve stripe api key from environment variables"""
 stripe.api_key = settings.STRIPE_SECRET
 
 
+"""
+checkout function. orderform and paymentform are
+displayed together so user can check out with one form.
+"""
 @login_required()
 def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 
+        """check if both orderform and paymentform are valid"""
         if order_form.is_valid() and payment_form.is_valid():
+
+            """save orderform information"""
             order = order_form.save(commit=False)
             order.date = timezone.now()
             order.save()
 
+            """Get all neccessary information from the cart."""
             cart = request.session.get('cart', {})
             total = 0
             for id, quantity in cart.items():
@@ -36,6 +44,7 @@ def checkout(request):
                                 )
                 order_line_item.save()
 
+            """using stripe for payment"""
             try:
                 customer = stripe.Charge.create(
                     amount=int(total*100),
@@ -55,7 +64,6 @@ def checkout(request):
                 messages.error(request, "Unable to process payment.")
 
         else:
-            print(payment_form.errors)
             messages.error(request, "Unable to take payment with this card.")
 
     else:

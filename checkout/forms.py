@@ -1,7 +1,7 @@
 from django import forms
 from .models import Order
 
-
+"""get all neccessary information for payment with stripe credit card"""
 class MakePaymentForm(forms.Form):
 
     MONTH_CHOICES = [(i, i) for i in range(1, 12)]

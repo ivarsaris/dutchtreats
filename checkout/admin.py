@@ -1,8 +1,7 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
-# Register your models here.
-
+"""register order and orderadmin to the admin panel"""
 class OrderLineAdminInline(admin.TabularInline):
     model = OrderLineItem
 
