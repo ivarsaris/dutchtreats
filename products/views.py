@@ -45,49 +45,13 @@ def new_review(request, pk):
 
                 messages.success(request, "Thanks for your review, it was saved successfully.")
                 return redirect('product', pk=product.pk)
-            
-        form = ReviewForm()
-    
+        form = ReviewForm()    
     return render(request, 'product.html', {'form': form, 'products': products, 'reviews': reviews, 'product': product})
-
-
-def edit_review(request, pk):
-    """allow user to edit review"""
-    reviews = Review.objects.all()
-    products = Product.objects.all()
-    review = get_object_or_404(Review, pk=pk)
-    # allow user to edit review if they are the review owner or admin
-    if (request.user.is_authenticated and request.user == review.owner or request.user.is_superuser):
-        if request.method == 'POST':
-            form = ReviewForm(request.POST, request.FILES, instance=review)
-            if form.is_valid():
-                review = form.save()
-                return redirect('product', review.post.id)
-        else:
-            form = ReviewForm(instance=review)
-    else:
-        return HttpResponseForbidden()
-
-    return render(request, 'product.html', {'form': form, 'products': products, 'reviews': reviews, 'post': review.post})
-
 
 def delete_review(request, pk):
     """allow user to delete review"""
-    # id = request.POST['review_id']  - From form related code.
-    # pk = request.POST['product_id'] - From form related code.
-    product = get_object_or_404(Product, pk=pk)
     review = get_object_or_404(Review, pk=pk)
-    if (request.user.is_authenticated and request.user == review.user or request.user.is_superuser):
-        if request.method == 'POST':
-            try:
-                review.delete()
-                messages.success(request, "You successfully deleted the review.")
-
-            except review.DoesNotExist:
-                messages.warning(request, "You can't delete this comment.")
-
-    else:
-        print("failed on checking user")
-        return HttpResponseForbidden()
+    review.delete()
+    messages.success(request, "You successfully deleted the review.")
 
     return render(request, 'index.html')

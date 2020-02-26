@@ -40,7 +40,7 @@
 								class="product-content-piece">
 								{% csrf_token %}
 								<input type="number" name="quantity" min="1" max="999" class="form-control" value=1>
-								<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
+								<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-yellow"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
 							</form>
 						</div>
 					</div>
@@ -64,8 +64,12 @@
 							<p>{{ review.content }}</p>
 						</div>
 						{% if user.is_authenticated and user == review.user or user.is_superuser %}
-						<a class="btn btn-primary" href="{% url 'delete_review' review.id %}" role="button">Delete
-							review</a>
+						<form action="{% url 'delete_review' review.id %}" method="POST">
+                            {% csrf_token %}
+							<span class="input-group-btn"><button type="submit" id='post-btn{{ forloop.counter }}' class='btn btn-primary btn-red'><i class="fas fa-trash-alt"></i> Delete review</button></span>
+						</form>
+						<!-- <a class="btn btn-primary" href="{% url 'delete_review' review.id %}" role="button">Delete -->
+						<!-- review</a> -->
 						{% endif %}
 					</div>
 				</div>
@@ -80,7 +84,7 @@
 						class='post-form' id='form' label='Write your own review.'>
 						{% csrf_token %}
 						{{ form | as_bootstrap }}
-						<span class="input-group-btn"><button type="submit" id= 'post-btn' class='btn-primary btn-orange'><i class="fas fa-sticky-note"></i> Post review</button></span>
+                        <span class="input-group-btn"><button type="submit" id='post-btn' class="btn btn-primary btn-orange"><i class="fas fa-sticky-note"></i> Post review</button></span>
 					</form>
 				</div>
 			</div>
