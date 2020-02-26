@@ -8,6 +8,7 @@ $(function() {
             cvc: $("#id_cvv").val()
         };
     
+        // only submit credit card data if no error is registered
     Stripe.createToken(card, function(status, response) {
         if (status === 200) {
             $("#credit-card-errors").hide();
@@ -21,6 +22,9 @@ $(function() {
             $("#id_expiry_year").removeAttr('name');
 
             form.submit();
+
+            // make sure credit card information is not submitted if
+            // there's some kind of error
         } else {
             $("#stripe-error-message").text(response.error.message);
             $("#credit-card-errors").show();
