@@ -7,7 +7,7 @@ class ReviewForm(forms.ModelForm):
     """
     form for review that can be added to product
     """
-    content = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Content'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Write your own review(you need to be logged in).'}))
 
     class Meta:
         model = Review
