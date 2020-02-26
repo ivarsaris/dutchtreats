@@ -27,10 +27,13 @@ def new_review(request, pk):
     or return error 404 if not found
     """
     if not request.user.is_authenticated:
-        # redirect user to login page if not authenticated
+       """redirect user to login page if not authenticated"""
         messages.warning(request, "You have to be logged in to post a review.")
         return redirect('login')
-
+    
+    """
+    If user is logged in, allow them to write a review 
+    """
     else:
         reviews = Review.objects.all()
         product = get_object_or_404(Product, pk=pk)
@@ -45,11 +48,15 @@ def new_review(request, pk):
 
                 messages.success(request, "Thanks for your review, it was saved successfully.")
                 return redirect('product', pk=product.pk)
+
         form = ReviewForm()    
+        
     return render(request, 'product.html', {'form': form, 'products': products, 'reviews': reviews, 'product': product})
 
 def delete_review(request, pk):
-    """allow user to delete review"""
+    """
+    allow user to delete review
+    """
     review = get_object_or_404(Review, pk=pk)
     review.delete()
     messages.success(request, "You successfully deleted the review.")
