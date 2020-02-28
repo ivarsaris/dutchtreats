@@ -13,13 +13,31 @@ As a Dutchman who travels a lot, sometimes I miss Dutch foods. I love to try new
 However, sometimes I wish I could get my hands on some Dutch foods wherever I am. This inspired me to build this 
 web application.
 
-# Demo
+The web application was made for educational purposes only, it's not a real webshop.
+
+## Demo
 
 [Live website](https://dutchtreats.herokuapp.com/). The apllication is hosted on [Heroku](www.heroku.com) and uses a 
 Heroku Postgress database.
 
 ![Responsive page](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/dutchtreats-responsive.png)
 
-# UX
+## UX
+
+### Users
+
+Users of Dutchtreats are people who don't have access to Dutch foods where they live. The Netherlands has several delicasies
+that are delicious and (almost) only available in The Netherlands. Dutch expats working in other countries, or others
+who have stayed in The Netherlands and are back home can now order these foods online and have them delivered to their home.
+
+#### User stories
+
+I started by creating [user stories]()
+
+### Design
+
+
+
+### Mockup
 
 
