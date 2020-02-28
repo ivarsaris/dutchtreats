@@ -15,6 +15,11 @@ web application.
 
 # Demo
 
-[Live website](https://dutchtreats.herokuapp.com/). The apllication is hosted on [Heroku](www.heroku.com).
+[Live website](https://dutchtreats.herokuapp.com/). The apllication is hosted on [Heroku](www.heroku.com) and uses a 
+Heroku Postgress database.
 
 ![Responsive page](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/dutchtreats-responsive.png)
+
+# UX
+
+
