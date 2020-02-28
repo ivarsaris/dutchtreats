@@ -10,7 +10,7 @@ def view_cart(request):
 def add_to_cart(request, id):
     if not request.user.is_authenticated:
 
-        """"redirect user to login page if not authenticated""""
+        """redirect user to login page if not authenticated"""
         messages.warning(request, "You have to be logged in to add products to your cart.")
         return redirect('login')
     

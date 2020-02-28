@@ -21,20 +21,21 @@ def product_detail(request, pk):
     form = ReviewForm(request.POST)
     return render(request, "product.html", {'product': product, 'form': form})
 
+
 def new_review(request, pk):
     """
     write a new review for a product on the single product page,
     or return error 404 if not found
     """
     if not request.user.is_authenticated:
-       """redirect user to login page if not authenticated"""
+        """redirect user to login page if not authenticated"""
         messages.warning(request, "You have to be logged in to post a review.")
         return redirect('login')
-    
-    """
-    If user is logged in, allow them to write a review 
-    """
+
     else:
+        """
+        If user is logged in, allow them to write a review
+        """
         reviews = Review.objects.all()
         product = get_object_or_404(Product, pk=pk)
         products = Product.objects.all()
@@ -46,12 +47,14 @@ def new_review(request, pk):
                 review.post = product
                 review.save()
 
-                messages.success(request, "Thanks for your review, it was saved successfully.")
+                messages.success(
+                    request, "Thanks for your review, it was saved successfully.")
                 return redirect('product', pk=product.pk)
 
-        form = ReviewForm()    
-        
+        form = ReviewForm()
+
     return render(request, 'product.html', {'form': form, 'products': products, 'reviews': reviews, 'product': product})
+
 
 def delete_review(request, pk):
     """
