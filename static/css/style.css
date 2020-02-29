@@ -9,9 +9,9 @@ html {
 
 body {
     height: 100%;
-    font-family: Arial;
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
     /* footer height is 55px */
-    margin: 0 0 55px;
+    margin: 0 0 65px;
     padding-bottom: 25px;
 }
 
@@ -59,7 +59,7 @@ main p a {
 }
 
 .btn-yellow {
-    background-color: yellow;
+    background-color: #ffe135;
     color: black;
     border: none;
     transition: 0.5s;
@@ -68,7 +68,7 @@ main p a {
 }
 
 .btn-yellow:hover {
-    background-color: #d6d606;
+    background-color: #b7b702;
     color: black;
 }
 
@@ -81,7 +81,21 @@ main p a {
 }
 
 .btn-red:hover {
-    background-color: #ff5f5f;
+    background-color: #ca0202;
+}
+
+.btn-blue {
+    background-color: #2b45ff;
+    border: none;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.btn-blue:hover {
+    background-color: #0300af;
+    border: none;
 }
 
 /********** navbar *****************/
@@ -89,6 +103,10 @@ main p a {
 .navbar-light .navbar-nav .nav-link {
     color: black;
     transition: 0.3s;
+}
+
+.navbar-brand {
+    font-family: 'Allan', Helvetica, Arial, sans-serif;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
@@ -109,6 +127,20 @@ main p a {
 
 .navbar-brand {
     font-size: 2em;
+    border: 1px;
+    border-radius: 30px;
+    background-color: #ffffff38;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.flag-image {
+    height: 40px;
+    width: auto;
+}
+
+.nav-item {
+    background-color: #ff4f00a8;
 }
 
 @media only screen and (min-width: 992px) {
@@ -128,6 +160,14 @@ in the navbar */
     border-radius: 9px;
 }
 
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .4rem;
+    padding-left: .4rem;
+    }
+}
+
+
 /********** footer *****************/
 
 footer {
@@ -135,7 +175,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 55px;
+    height: 65px;
     background-color: #ff4f00;
     color: black;
     padding-top: 10px;
@@ -166,6 +206,13 @@ footer .footer-text {
 
 .homepage-description {
     margin-top: 2em;
+    font-size: 1.6em;
+}
+
+@media screen and (max-width: 576px) {
+    .homepage-description {
+    font-size: 1.2em;
+}
 }
 
 /********** password reset *****************/
@@ -193,7 +240,9 @@ footer .footer-text {
     text-align: center;
     height: 100%;
     border: 2px solid black;
+    border-radius: 10px;
     margin-bottom: 1em;
+    background-color: #ff4f00a8;
 }
 
 .product-body .form-control {
@@ -271,7 +320,8 @@ footer .footer-text {
   border: 1px #80808082 solid;
   border-radius: 7px;
   margin-bottom: 1em;
-  padding: 30px
+  padding: 15px 30px 10px 30px;
+  margin: 0;
 }
 
 .review-column {
@@ -286,8 +336,12 @@ footer .footer-text {
     }
 }
 
-.review-username {
+.review-content h5 {
     color: #ff4f00;
+}
+
+.review-default-message {
+    text-align: center;
 }
 
 /********** cart.html *****************/
@@ -298,6 +352,11 @@ to make space for price
  */
 .new-amount-input {
     width: 50px;
+}
+
+.cart-item {
+    border: 2px solid #ff4f00a8;
+    border-radius: 20px;
 }
 
 /********** contact.html *****************/
@@ -341,6 +400,33 @@ to make space for price
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+.about-image-column {
+    text-align: center;
+}
+
+.about-image {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+/* 
+@media screen and (max-width: 991px) {
+    .about-image {
+        width: 300px;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-image {
+        width: 400px;
+        height: auto;
+        max-width: 100%;
+    }
+} */
 
 .team-member {
     background-size: contain;

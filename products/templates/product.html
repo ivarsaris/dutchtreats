@@ -40,7 +40,7 @@
 								class="product-content-piece">
 								{% csrf_token %}
 								<input type="number" name="quantity" min="1" max="999" class="form-control" value=1>
-								<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-cart-plus"></i>&nbsp Add to cart</button></span>
+								<span class="input-group-btn"><button type="submit" class="btn btn-primary btn-blue"><i class="fas fa-cart-plus"></i>&nbsp; Add to cart</button></span>
 							</form>
 						</div>
 					</div>
@@ -56,21 +56,21 @@
 					<h2>Reviews</h2>
 				</div>
 			</div>
+			<!-- check if there are reviews -->
+			{% if product.reviews.all.count > 0 %}
 			{% for review in product.reviews.all %}
 			<div class="col-12 col-lg-6 review-column">
 				<div class="review-body">
-					<div class="review-username">
-						<h4>{{ review.user.username }}</h4>
-						<hr>
-					</div>
 					<div class="review-content">
-						<p>{{ review.content }}</p>
+						<div class="row">
+							<h5>{{ review.user.username }}</h5>: &emsp14; <p>{{ review.content }}</p>
+						</div>
 					</div>
 					<!-- 
-                    delete button for a specific review is only displayed if the user
-                    that is logged in is the user that wrote the review. Or if the 
-                    user is admin
-                    -->
+                        delete button for a specific review is only displayed if the user
+                        that is logged in is the user that wrote the review. Or if the 
+                        user is admin
+                        -->
 					{% if user.is_authenticated and user == review.user or user.is_superuser %}
 					<form action="{% url 'delete_review' review.id %}" method="POST">
 						{% csrf_token %}
@@ -79,8 +79,17 @@
 					{% endif %}
 				</div>
 			</div>
-
 			{% endfor %}
+			<!-- return default text if there are no reviews for a product -->
+			{% else %}
+			<div class="col-12">
+				<div class="review-default-message">
+					<div class="row">
+						<p>There are no reviews for {{ product.name }} yet.</p>
+					</div>
+				</div>
+			</div>
+			{% endif %}
 
 		</div>
 
@@ -98,7 +107,6 @@
 				</form>
 			</div>
 		</div>
-	</div>
 	</div>
 </section>
 
