@@ -20,7 +20,7 @@ The web application was made for educational purposes only, it's not a real webs
 [Live website](https://dutchtreats.herokuapp.com/). The apllication is hosted on [Heroku](www.heroku.com) and uses a 
 Heroku Postgress database.
 
-![Responsive page](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/dutchtreats-responsive.png)
+![Responsive page](media/images/dutchtreats-responsive.png)
 
 ## UX
 
