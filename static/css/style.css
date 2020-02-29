@@ -3,8 +3,8 @@
 html {
     /* Set min-height to 100% to make sure 
     the footer sticks to the bottom */
-    position: relative;
     min-height: 100%;
+    position: relative;
 }
 
 body {
