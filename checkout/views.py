@@ -58,7 +58,7 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "The payment was successfull.")
                 request.session['cart'] = {}
-                return redirect(reverse('products'))
+                return redirect(reverse('confirmation'))
 
             else:
                 messages.error(request, "Unable to process payment.")
@@ -75,3 +75,10 @@ def checkout(request):
                                             'payment_form': payment_form,
                                             'publishable': settings.STRIPE_PUBLISHABLE,
                                             })
+
+def confirmation(request):
+    """return confirmation.html"""
+
+    return render(request,
+                'confirmation.html')
+
