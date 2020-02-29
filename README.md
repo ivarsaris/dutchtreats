@@ -118,10 +118,40 @@ month in the future and the(fictional) payment should go through. I tested it se
 
 ![Stripe dashboard](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/stripe-payments.png)
 
-I tested the application on several devices and broswers. I tested on an HP laptop, a MacBook, a Microsoft Surface laptop, an Ipad an Iphone 6, 7, and 10, an Honor 10 and a Samsung
-Galaxy s9. The application was responsive and worked well on all devices. I tried several browsers as well. The application worked well on Google Chrome, Safari and Mozilla Firefox.
+### Responsiveness
+
+I tested the application on several devices. I tested on an HP laptop, a MacBook, a Microsoft Surface laptop, an Ipad an Iphone 6, 7, and 10, an Honor 10 and a Samsung
+Galaxy s9. The application was responsive and worked well on all devices. I also ran the application through https://responsivedesignchecker.com/ and checked many different devices. 
+This to make sure the application looks good on all of them. I ensured the application looks good on all devices from 320px width(smallest mobile device) and up. 
+
+### Browser compatibility
+
+I tried the application on several browsers. The application worked well on Google Chrome, Safari and Mozilla Firefox.
 However, there was one issue in Internet Explorer and Microsoft Edge. The soft orange background color I uses for the product and meet the team colums doesn't come through. I'm not sure
 how to fix this.
+
+### Code validation
+
+I ran the code through several validators to make sure there are no mistakes. The HTML validators don't take Django template language into account, so several errors were returned. 
+I checked them and these were not mistakes.
+
+**HTML5**
+
+https://validator.w3.org/
+
+https://html5.validator.nu/
+
+**CSS**
+
+https://codebeautify.org/cssvalidate
+
+https://jigsaw.w3.org/css-validator/
+
+**Python**
+
+https://extendsclass.com/python-tester.html
+
+http://pep8online.com/
 
 ## Features
 
@@ -187,7 +217,8 @@ All content was writted by me.
 
 ### Media 
 
-I got the images from google. I choose images with no brand or company information. No copyright infringement was intended. 
+I got the images from google. I choose images with no brand or company information. I don't own the copyright to any of the images.
+The application was made for educational purposes only. No copyright infringement was intended. 
 
 ### Acknowledgements
 
@@ -196,4 +227,5 @@ I took a navbar snippet from Bootstrap and adapted it to fit the application.
 I followed the [Django tutorial from Corey Schafer](https://www.youtube.com/watch?v=FdVuKt_iuSI&t=504s) on YouTube for the create profile functionality. I adapted the code and styling to fit the
 application.
 
-
+I want to thank my mentor, Seun Owonikoko, for her support and feedback. I also want to thank the tutors from Code Institute for helping me solve
+several issues that came up along the way. 
