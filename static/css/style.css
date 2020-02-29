@@ -10,7 +10,7 @@ html {
 body {
     height: 100%;
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
-    /* footer height is 55px */
+    /* footer height is 65px */
     margin: 0 0 65px;
     padding-bottom: 25px;
 }
@@ -411,22 +411,6 @@ to make space for price
     height: auto;
     margin-bottom: 5px;
 }
-/* 
-@media screen and (max-width: 991px) {
-    .about-image {
-        width: 300px;
-        height: auto;
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .about-image {
-        width: 400px;
-        height: auto;
-        max-width: 100%;
-    }
-} */
 
 .team-member {
     background-size: contain;
