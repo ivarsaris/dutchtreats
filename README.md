@@ -102,12 +102,6 @@ Heroku.
 
 ## Testing
 
-### Automated Testing
-
-Automated testing was done using Travis continuous integration. Automated testing is done for the apps, views, models, and forms.
-
-### Manual testing
-
 I manually tested all functions in all apps. I did this to ensure all functions were working properly. For a while, the functionality stored
 admin as the user who wrote any review, no matter who is logged in. The problem here was an error in the template language. Another issue that 
 came up was because I created the profile functionality after I created the superuser(Admin). So Admin didn't have a profile, and when I tried to

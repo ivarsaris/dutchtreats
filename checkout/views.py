@@ -65,7 +65,7 @@ def checkout(request):
 
         else:
             messages.error(request, "Unable to take payment with this card.")
-
+            
     else:
         order_form = OrderForm()
         payment_form = MakePaymentForm()
