@@ -112,6 +112,9 @@ month in the future and the(fictional) payment should go through. I tested it se
 
 ![Stripe dashboard](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/stripe-payments.png)
 
+when entering wrong credit card information, the application should return a message to the user indicating what went wrong. However, this doesn't happen. I wrote 
+the functionality for this but it's not coming through. I'm not sure why or how to fix this.
+
 ### Responsiveness
 
 I tested the application on several devices. I tested on an HP laptop, a MacBook, a Microsoft Surface laptop, an iPad an iPhone 6, 7, and 10, an Honor 10 and a Samsung
