@@ -109,7 +109,91 @@ Automated testing was done using Travis continuous integration. Automated testin
 ### Manual testing
 
 I manually tested all functions in all apps. I did this to ensure all functions were working properly. For a while, the functionality stored
-admin as the user who wrote any review, no matter who is logged in. The problem here was an error in the 
+admin as the user who wrote any review, no matter who is logged in. The problem here was an error in the template language. Another issue that 
+came up was because I created the profile functionality after I created the superuser(Admin). So Admin didn't have a profile, and when I tried to
+render the profile page when logged in as Adminm, it returned an error. I simply created a new superuser to fix this issue.
 
+To test the Stripe payment method, you can use the Stripe test card information. Use credit card number 4242424242424242 with any CVC code and an expiry
+month in the future and the(fictional) payment should go through. I tested it several times myself and the payments all went through and show up on the Stripe dashboard:
+
+![Stripe dashboard](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/stripe-payments.png)
+
+I tested the application on several devices and broswers. I tested on an HP laptop, a MacBook, a Microsoft Surface laptop, an Ipad an Iphone 6, 7, and 10, an Honor 10 and a Samsung
+Galaxy s9. The application was responsive and worked well on all devices. I tried several browsers as well. The application worked well on Google Chrome, Safari and Mozilla Firefox.
+However, there was one issue in Internet Explorer and Microsoft Edge. The soft orange background color I uses for the product and meet the team colums doesn't come through. I'm not sure
+how to fix this.
+
+## Features
+
+The application has several features, not all are accessible to everyone. The following features are accessible to the following users:
+
+**Anyone** 
+- See the webpage
+- find products
+- Read reviews 
+- Fill out the contact form. 
+
+**Logged in user**
+- Add products to their cart
+- Buy the products through the checkout page
+- Write a product review
+- Delete a review they wrote
+- Visit their profile page
+- Make changes to their profile
+
+**Admin**
+- Access the admin panel
+- Make changes to and delete products
+- Make changes to user profiles
+- Make changes to and delete reviews
+- Access the overview of all orders placed
+
+### Features left to implement
+
+The first feature I would like to implement is some kind of functionality to keep track of stock. If a delivery comes in, Admin can add these to the stock
+and when a customer buys a product, it gets taken out. So Admin always has an overview of the amount of all products in stock. Also, when a product is sold out, 
+it doesn't show in the products page any more. So a user isn't dissapointed when they buy something but it can't be delivered. 
+
+Another feature I would like to implement is a star rating system for the products. A user can give a rating to a product, and the average rating of a product is
+calculated and displayed. So users can see if others like a product or not. 
+
+Also I would like to add some kind of pagination to the products and the reviews. When the inventory grows and more products are added, they will all displayed
+in one page as it stands now. This could cause a very long products page. Adding pagination would make it look neater. The same goes for reviews. A user would
+see the last 10 reviews. If they want to load more, that's possible. But by default, only the last 10 are shown.
+
+I would also like to make a more ellaborate profile page. Currently, the user can only add their username, e-mail and upload a picture. I would like to add
+their address and credit card information as well. So when a user goes to their cart, this information is already filled out. The user doesn't need to fill
+out the checkout form every time.
+
+## Installation
+
+The application is deployed in Heroku. To get the app running locally, follow these steps:
+
+1. Set up a workspace in your development environment
+2. Clone the app from my GitHub repository with the following command: git clone https://github.com/ivarsaris/dutchtreats
+3. Change the directory with the following command: cd dutchtreats
+4. Install the required installations with the following command: sudo pip3 install -r requirements.txt
+5. Obtain your own secret keys for AWS S3, Stripe, and Heroku Postgress. Put them in a file call env.py in the root directory. 
+Put "import env" on line 2 of your settings file. 
+6. Set DEBUG = True in line 16 of your settings file. 
+7. Save the file, and run it in the terminal with the following command: python3 manage.py
+Now your app is running locally
+
+## Credits
+
+### Content 
+
+All content was writted by me.
+
+### Media 
+
+I got the images from google. I choose images with no brand or company information. No copyright infringement was intended. 
+
+### Acknowledgements
+
+I took a navbar snippet from Bootstrap and adapted it to fit the application.
+
+I followed the [Django tutorial from Corey Schafer](https://www.youtube.com/watch?v=FdVuKt_iuSI&t=504s) on YouTube for the create profile functionality. I adapted the code and styling to fit the
+application.
 
 
