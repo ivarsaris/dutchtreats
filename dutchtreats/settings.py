@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "28_zy@l$t#g1)6as#6l(!1kz4dz@3y&$74tyte34ekdb!vc9z)"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -134,8 +134,8 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 AWS_STORAGE_BUCKET_NAME = 'dutchtreats'
 AWS_S3_REGION_NAME = 'eu-west-3'
-AWS_ACCESS_KEY_ID = "AKIA2VMXHQU6REJT325K"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
@@ -153,8 +153,8 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
-STRIPE_PUBLISHABLE = "pk_test_dHmJzECpJESEUquRaJT1Nnoj00JnDCmqZq"
-STRIPE_SECRET = "sk_test_4JCL2hTnJiOlUD1nhqqdbmav00Ovjn2HVW"
+STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
+STRIPE_SECRET = os.getenv("STRIPE_SECRET")
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
