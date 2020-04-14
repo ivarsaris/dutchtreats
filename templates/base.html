@@ -16,10 +16,10 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 	<!-- Favicon -->
 	<link href="{% static 'images/flag.jpg' %}" rel="shortcut icon" type="image/x-icon" />
-    <!-- font type -->
-    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-    <!-- navbar font type -->
-    <link href="https://fonts.googleapis.com/css?family=Allan" rel="stylesheet">
+	<!-- font type -->
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+	<!-- navbar font type -->
+	<link href="https://fonts.googleapis.com/css?family=Allan" rel="stylesheet">
 	<!-- bootstrap JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -36,8 +36,8 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light">
-		<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+	    <div class="container">
 			<!-- Dutchtreats title -->
 			<div class="navbar-brand">
 				<a href="{% url 'index' %}"><img class="flag-image" src="{% static 'images/flag.jpg' %}" alt="Dutch flag"> Dutchtreats</a>
@@ -93,22 +93,22 @@
 				</li>
 				{% endif %}
 			</ul>
-		</div>
-	</nav>
+	    </div>
+    </nav>
 
 	{% if messages %}
 	<!-- section is only shown if there is a message to be displayed -->
-	<section class="messages">
+	<div class="messages">
 		<div class="container">
 			<div class="row">
-				<div class="messages">
+				<div class="col-12">
 					{% for message in messages %}
 					<h3>{{ message }}</h3>
 					{% endfor %}
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 	{% endif %}
 
 	<main>
@@ -135,8 +135,8 @@
 					<p class="copyright"><i class="far fa-copyright"></i> Ivar Saris 2020</p>
 				</div>
 				<div class="col-8">
-					<p class="footer-text">Made for educational purposes. Please visit my 
-                    <a href="https://github.com/ivarsaris" target="_blank">GitHub</a> page to see some of
+					<p class="footer-text">Made for educational purposes. Please visit my
+						<a href="https://github.com/ivarsaris" target="_blank">GitHub</a> page to see some of
 						my other projects.</p>
 				</div>
 			</div>
