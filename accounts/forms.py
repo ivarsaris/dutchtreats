@@ -13,7 +13,7 @@ class UserLoginform(forms.Form):
     """form for user to log in."""
 
     username = forms.CharField(
-        label='username',
+        label='Username',
         widget=forms.TextInput(
             attrs={
                 'style': 'border: 2px solid black; border-radius: 4px;'
@@ -22,7 +22,7 @@ class UserLoginform(forms.Form):
 )
 
     password = forms.CharField(
-        label='password',
+        label='Password',
         widget=forms.PasswordInput(
             attrs={
                 'style': 'border: 2px solid black; border-radius: 4px;'
