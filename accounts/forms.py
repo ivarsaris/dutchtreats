@@ -35,7 +35,7 @@ class UserRegistrationForm(UserCreationForm):
     """form to register a new user"""
 
     email = forms.CharField(
-        label='email',
+        label='Email',
         widget=forms.TextInput(
             attrs={
                 'style': 'border: 2px solid black; border-radius: 4px;'
@@ -44,7 +44,7 @@ class UserRegistrationForm(UserCreationForm):
 )
 
     username = forms.CharField(
-        label='username',
+        label='Username',
         widget=forms.TextInput(
             attrs={
                 'style': 'border: 2px solid black; border-radius: 4px;'
