@@ -4,17 +4,11 @@
 
 {% block page_title %}Dutchtreats - Contact{% endblock %}
 
-{% block head_js %}
-<!-- Email js, used in contact form -->
-<script type="text/javascript">
-	(function(){
-      emailjs.init("user_cVgLoodOgPqYs4Rd8I7TZ");
-   })();
-</script>
-<script type="text/javascript" src="{% static 'js/email.js' %}"></script>
-{% endblock %}
+<!-- {% block head_js %}
 
-{% block page_heading %}Send us a message!{% endblock %}
+{% endblock %} -->
+
+{% block page_heading %}Send us a mmmmessage!{% endblock %}
 
 {% block content %}
 
@@ -53,5 +47,15 @@
 		</div>
 	</div>
 </section>
+
+{% block scripts_js %}
+<!-- Email js, used in contact form -->
+<script type="text/javascript">
+	(function(){
+      emailjs.init("user_cVgLoodOgPqYs4Rd8I7TZ");
+   })();
+</script>
+<script type="text/javascript" src="{% static 'js/email.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

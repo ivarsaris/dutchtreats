@@ -4,7 +4,8 @@
 {% load mathfilters %}
 
 {% block head_js %}
-<!-- stripe javascript for handling payments -->
+<!-- stripe javascript for handling payments. put in head because if put in body,
+console complains about stripe js loading twice. -->
 <script type="text/javascript" src="https://js.stripe.com/v2"></script>
 <script type="text/javascript">
 	Stripe.setPublishableKey('{{ publishable }}')
@@ -97,6 +98,5 @@
 		</div>
 	</div>
 </section>
-
 
 {% endblock %}

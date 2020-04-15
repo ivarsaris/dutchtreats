@@ -40,7 +40,7 @@
 	    <div class="container">
 			<!-- Dutchtreats title -->
 			<div class="navbar-brand">
-				<a href="{% url 'index' %}"><img class="flag-image" src="{% static 'images/flag.jpg' %}" alt="Dutch flag"> DDDDutchtreats</a>
+				<a href="{% url 'index' %}"><img class="flag-image" src="{% static 'images/flag.jpg' %}" alt="Dutch flag">  Dutchtreats</a>
 			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -142,6 +142,8 @@
 			</div>
 		</div>
 	</footer>
+    {% block scripts_js %}
+	{% endblock %}
 </body>
 
 </html>
