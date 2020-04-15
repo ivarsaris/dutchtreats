@@ -110,8 +110,8 @@ main p a {
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #c5c2c2;
-    background-color: #e6550a;
+    color: #d6d4d4;
+    background-color:#e54700;
 }
 
 .navbar-light .navbar-nav .nav-welcome {
@@ -134,6 +134,13 @@ main p a {
     background-color: #ffffff38;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+@media only screen and (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.5em;
+        margin-right: 0;
+    }
 }
 
 .flag-image {
@@ -244,16 +251,16 @@ footer .footer-text {
     border: 2px solid black;
     border-radius: 10px;
     margin-bottom: 1em;
-    background-color: #ff4f00a8;
+    background-color: #ff834c;
     transition: 0.5s;
 }
 
 .product-body:hover {
-    background-color: #ff4f00;
+    background-color:#e54700;
 }
 
 .product-body a:hover {
-    color: #c5c2c2;
+    color: #d6d4d4;
 }
 
 .product-body .form-control {
