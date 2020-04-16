@@ -34,7 +34,7 @@
                         will be updated automatically -->
 							{% csrf_token %}
 							<div class="form-group new-amount-input">
-								<input type="number" name="quantity" min="0" max="999" class="form-control" value={{ item.quantity }}>
+								<input type="number" name="quantity" min="0" max="999" class="form-control" value={{ item.quantity }} required=True>
 								<button type="submit" class="btn btn-primary btn-blue">Amend</button>
 							</div>
 						</form>
