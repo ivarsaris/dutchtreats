@@ -210,7 +210,24 @@ footer .footer-text {
 
 .index-background {
     width: 100%;
-    margin-top: -28px;
+    margin-top: -14px;
+}
+
+@media screen and (min-width: 992px) {
+    .index-background {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .index-background {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1140px;
+    }
 }
 
 .homepage-description {
@@ -221,7 +238,7 @@ footer .footer-text {
 @media screen and (max-width: 576px) {
     .homepage-description {
     font-size: 1.2em;
-}
+    }
 }
 
 /********** password reset *****************/
