@@ -89,37 +89,42 @@ def registration(request):
 
 
 def user_profile(request):
-    """User profile page"""
+    """User profile page. if user is not logged in, they're redirected 
+    to login page with message. Else, they're profile is opened"""
 
-    """retrieve user"""
-    user = User.objects.get(email=request.user.email)
-
-    if request.method == 'POST':
-
-        """post forms if new data is given"""
-        UserUpdate_Form = UserUpdateForm(request.POST, instance=request.user)
-        ProfileUpdate_Form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-
-        """check if both forms are valid"""
-        if UserUpdate_Form.is_valid() and ProfileUpdate_Form.is_valid():
-            
-            """update user and profile"""
-            UserUpdate_Form.save()
-            ProfileUpdate_Form.save()
-
-            messages.success(request, "Your profile has been updated!")
-            return redirect('profile')
-
+    if request.user.is_anonymous:
+        messages.add_message(request, messages.INFO,
+                             'You must be logged in to visit your profile.')
+        return redirect('login')
     else:
-        
-        """keep data as is if no new data is given"""
-        UserUpdate_Form = UserUpdateForm(instance=request.user)
-        ProfileUpdate_Form = ProfileUpdateForm(instance=request.user.profile)
+        user = User.objects.get(email=request.user.email)
 
-    return render(request,
-                'profile.html',
-                {
-                'profile': user,
-                'UserUpdate_Form': UserUpdate_Form,
-                'ProfileUpdate_Form': ProfileUpdate_Form}
-                )
+        if request.method == 'POST':
+
+            """post forms if new data is given"""
+            UserUpdate_Form = UserUpdateForm(request.POST, instance=request.user)
+            ProfileUpdate_Form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+            """check if both forms are valid"""
+            if UserUpdate_Form.is_valid() and ProfileUpdate_Form.is_valid():
+                
+                """update user and profile"""
+                UserUpdate_Form.save()
+                ProfileUpdate_Form.save()
+
+                messages.success(request, "Your profile has been updated!")
+                return redirect('profile')
+
+        else:
+            
+            """keep data as is if no new data is given"""
+            UserUpdate_Form = UserUpdateForm(instance=request.user)
+            ProfileUpdate_Form = ProfileUpdateForm(instance=request.user.profile)
+
+        return render(request,
+                    'profile.html',
+                    {
+                    'profile': user,
+                    'UserUpdate_Form': UserUpdate_Form,
+                    'ProfileUpdate_Form': ProfileUpdate_Form}
+                    )
