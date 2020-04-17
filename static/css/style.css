@@ -230,15 +230,17 @@ footer .footer-text {
     }
 }
 
-.homepage-description {
-    margin-top: 2em;
-    font-size: 1.6em;
+.homepage-link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    text-decoration: underline;
 }
 
-@media screen and (max-width: 576px) {
-    .homepage-description {
-    font-size: 1.2em;
-    }
+.homepage-description {
+    margin-top: 2em;
+    font-size: 1.3em;
 }
 
 /********** password reset *****************/
