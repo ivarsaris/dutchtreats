@@ -31,10 +31,6 @@ console complains about stripe js loading twice. -->
 					<legend>
 						<h3>Payment Details</h3>
 					</legend>
-
-					<div id="credit-card-errors" style="display: none;">
-						<div id="alert-message block-message error" id="stripe-error-message"></div>
-					</div>
                     <!-- order and payment form displayed together. Looks like one form. -->
 					<div class="form-group">
 						{{ order_form | as_bootstrap }}
@@ -49,6 +45,9 @@ console complains about stripe js loading twice. -->
 							only use Stripe's card testing information.</p>
 					</div>
 					{% csrf_token %}
+                    <div id="credit-card-errors" style="display: none;">
+						<div class="alert-message block-message error" id="stripe-error-message"></div>
+					</div>
 					<div class="form-group">
 						<input class=" btn btn-primary btn-orange" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
                     </div>
