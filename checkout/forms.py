@@ -19,8 +19,10 @@ class MakePaymentForm(forms.Form):
     YEAR_CHOICES = [(i, i) for i in range(2020, 2039)]
 
     credit_card_number = forms.CharField(label='Credit card number. Stripe credit card test number is 4242424242424242',
+                                         max_length=16, min_length=16,
                                          required=False)
     cvv = forms.CharField(label='Security code (CVV)',
+                          max_length=3, min_length=3,
                           required=False)
     expiry_month = forms.ChoiceField(label='Expiry month',
                                      choices=MONTH_CHOICES,

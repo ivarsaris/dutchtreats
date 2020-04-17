@@ -465,6 +465,13 @@ to make space for price
     background-color: #ff010d;
 }
 
+#credit-card-errors {
+    background-color: black;
+    color: red;
+    text-align: center;
+    padding: 1em;
+}
+
 .product-checkout {
     background-size: contain;
     background-position: center center;
