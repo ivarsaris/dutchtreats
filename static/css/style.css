@@ -27,7 +27,6 @@ a:hover {
 
 .heading {
     margin-top: 20px;
-    margin-left: 14px;
 }
 
 .heading-hr {
@@ -231,10 +230,11 @@ footer .footer-text {
 }
 
 .homepage-link {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 1em;
+}
+
+.homepage-link a {
+    text-align: center;
     text-decoration: underline;
 }
 

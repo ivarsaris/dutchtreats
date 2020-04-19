@@ -9,61 +9,58 @@
 
 {% block content %}
 
-<section>
-	<div class="container">
-        <hr>
-		{% for item in cart_items %}
-		<div class="row cart-item">
-			<div class="col-md-3 product-item">
-				<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
-				</div>
-			</div>
-			<div class="col-md-9 product-item">
-				<div class="row">
-					<div class="col-6 col-md-3 product-name">
-						<h5>Product</h5>
-						<p>{{ item.product.name }}</p>
-					</div>
-					<div class="col-6 col-md-3 product-price">
-						<h5>Price per unit</h5>
-						<p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
-					</div>
-					<div class="col-6 col-md-3 product-quantity">
-						<form class="form-inline" action="{% url 'adjust_cart' item.id %}" method="post">
-                        <!-- user can change amount of a product in the cart. price and total price
-                        will be updated automatically -->
-							{% csrf_token %}
-							<div class="form-group new-amount-input">
-								<input type="number" name="quantity" min="0" max="999" class="form-control" value={{ item.quantity }} required=True>
-								<button type="submit" class="btn btn-primary btn-blue">Amend</button>
-							</div>
-						</form>
-					</div>
-					<div class="col-6 col-md-3 product-total-price">
-						<h5>Price</h5>
-                        <!-- price is product price * product amount -->
-						{% with quantity=item.quantity price=item.product.price %}
-						<p><i class="fas fa-euro-sign"></i> {{ quantity|mul:price }}</p>
-						{% endwith %}
-					</div>
-				</div>
+<div class="container">
+	<hr>
+	{% for item in cart_items %}
+	<div class="row cart-item">
+		<div class="col-md-3 product-item">
+			<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
 			</div>
 		</div>
-		<hr>
-		{% endfor %}
-		<div class="row">
-			<div class="col-12 col-md-9 order-text">
-				<p>Please check your order and pay by credit card.</p>
-			</div>
-			<div class="col-12 col-md-3">
-				<h4>Total price</h4>
-				<p>&nbsp;<i class="fas fa-euro-sign"></i> {{ total }}</p>
-				<a href="{% url 'checkout' %}" class="btn btn-primary btn-orange"
-					role="button"><i class="far fa-credit-card"></i>&nbsp Checkout</a>
+		<div class="col-md-9 product-item">
+			<div class="row">
+				<div class="col-6 col-md-3 product-name">
+					<h5>Product</h5>
+					<p>{{ item.product.name }}</p>
+				</div>
+				<div class="col-6 col-md-3 product-price">
+					<h5>Price per unit</h5>
+					<p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
+				</div>
+				<div class="col-6 col-md-3 product-quantity">
+					<form class="form-inline" action="{% url 'adjust_cart' item.id %}" method="post">
+						<!-- user can change amount of a product in the cart. price and total price
+                        will be updated automatically -->
+						{% csrf_token %}
+						<div class="form-group new-amount-input">
+							<input type="number" name="quantity" min="0" max="999" class="form-control" value={{ item.quantity }} required>
+							<button type="submit" class="btn btn-primary btn-blue">Amend</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-6 col-md-3 product-total-price">
+					<h5>Price</h5>
+					<!-- price is product price * product amount -->
+					{% with quantity=item.quantity price=item.product.price %}
+					<p><i class="fas fa-euro-sign"></i> {{ quantity|mul:price }}</p>
+					{% endwith %}
+				</div>
 			</div>
 		</div>
 	</div>
-</section>
-
+	<hr>
+	{% endfor %}
+	<div class="row">
+		<div class="col-12 col-md-9 order-text">
+			<p>Please check your order and pay by credit card.</p>
+		</div>
+		<div class="col-12 col-md-3">
+			<h4>Total price</h4>
+			<p>&nbsp;<i class="fas fa-euro-sign"></i> {{ total }}</p>
+			<a href="{% url 'checkout' %}" class="btn btn-primary btn-orange"
+				role="button"><i class="far fa-credit-card"></i>&nbsp; Checkout</a>
+		</div>
+	</div>
+</div>
 
 {% endblock %}

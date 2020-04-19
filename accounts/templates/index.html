@@ -9,24 +9,22 @@
 <div class="col-12 homepage-image-column">
 	<img class="index-background" src="{% static 'images/home2.jpg' %}" alt="Home image">
 </div>
-	<section>
-		<div class="container homepage-description">
-			<div class="col-12">
-				<div class="row">
-                    <a class="homepage-link" href="{% url 'products' %}"><h3>Click here to see our products and order them!</h3></a>
-				</div>
-			</div>
-			<div class="col-12">
-				<div class="row">
-					<p>Welcome to the Dutchtreats website! Are there typical Dutch foods you miss during your stay
-						abroad? This
-						is not necessary anymore! You can now enjoy these delicacies anywhere. Order with us and it will
-						be
-						delivered to your door.
-					</p>
-				</div>
-			</div>
+<div class="container homepage-description">
+	<div class="row">
+		<div class="col-12 homepage-link">
+			<a href="{% url 'products' %}">
+				<h3>Click here to see our products and order them!</h3>
+			</a>
 		</div>
-	</section>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p>Welcome to the Dutchtreats website! Are there typical Dutch foods you miss during your stay
+				abroad? This is not necessary anymore! You can now enjoy these delicacies anywhere. 
+                Order with us and it will be delivered to your door.
+			</p>
+		</div>
+	</div>
+</div>
 
-	{% endblock %}
+{% endblock %}

@@ -30,14 +30,13 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
 	{% block head_js %}
 	{% endblock %}
 </head>
-
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
-	    <div class="container">
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+		<div class="container">
 			<!-- Dutchtreats title -->
 			<div class="navbar-brand">
 				<a href="{% url 'index' %}"><img class="flag-image" src="{% static 'images/flag.jpg' %}" alt="Dutch flag">  Dutchtreats</a>
@@ -73,7 +72,7 @@
                         if there are items in cart 
                         -->
 						{% if product_count > 0 %}
-						<label class="badge warning">{{ product_count }}</label>
+                        {{ product_count }}
 						{% endif %}
 					</a>
 				</li>
@@ -93,9 +92,8 @@
 				</li>
 				{% endif %}
 			</ul>
-	    </div>
-    </nav>
-
+		</div>
+	</nav>
 	{% if messages %}
 	<!-- section is only shown if there is a message to be displayed -->
 	<div class="messages">
@@ -110,24 +108,21 @@
 		</div>
 	</div>
 	{% endif %}
-
-	<main>
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="heading">
-						<h1>{% block page_heading %}{% endblock %}</h1>
-					</div>
+    <header>
+        <div class="container">
+			<div class="row">
+				<div class="col-12 heading">
+					<h1>{% block page_heading %}{% endblock %}</h1>
 				</div>
 			</div>
-		</section>
+		</div>
+    </header>
+	<main>
 		<!-- 
-        the content on every template is inserted here. Each content 
-        section start with <section> 
+        the content on every template is inserted here. 
         -->
 		{% block content %}{% endblock %}
 	</main>
-
 	<footer>
 		<div class="container">
 			<div class="row">
@@ -142,8 +137,7 @@
 			</div>
 		</div>
 	</footer>
-    {% block scripts_js %}
+	{% block scripts_js %}
 	{% endblock %}
 </body>
-
 </html>

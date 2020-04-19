@@ -8,95 +8,87 @@
 
 {% block content %}
 
-<section>
-	<div class="container">
-		<hr>
-		<div class="row">
-			<div class="col-12">
-				<div class="about-us-header">
-					<h2>The Dutchtreats story</h2>
-				</div>
-				<div class="about-us-content">
-					<div class="row">
-						<div class="col-12 col-md-5 col-lg-6 about-image-column">
-							<img class="about-image" src="{% static 'images/about1.jpg' %}" alt="About">
-							<img class="about-image" src="{% static 'images/about2.jpg' %}" alt="About">
-                        </div>
-							<div class="col-12 col-md-7 col-lg-6">
-								<p>As a Dutchman who has lived abroad for several years, I love to try local food and
-									enjoy all cuisines. However, wherever I went there were typical Dutch snacks and
-									treats that I missed. Whenever I speak to someone who has spend some time in The
-									Netherlands, they all say the same thing. Dutch treats are the best! This inspired
-									me to create Dutchtreats. I thought there was a market for shipping typical Dutch
-									foods to people all over the world.
-								</p>
-                                <p>    
-									We started small, shipping within Europe. But we grew rapidly and now we ship to
-									four continents and have distribution centers in 10 countries. Our team consists of
-									experts in logistics and we make sure all products are delivered promptly and fresh.
-									Please have a look at our wide range of products and feel free to contact us with
-									any comments, questions, or suggestions.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-</section>
-<section>
-	<div class="container">
-		<hr>
-		<div class="row">
-			<div class="col-12">
-				<div class="about-us-header">
-					<h2>Meet the team</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 col-md-6 col-lg-3 product-colums">
-				<div class="product-body">
-					<img class="team-member" src="{% static 'images/jay.jpg' %}" alt="Jay">
-					<h3>Jay</h3>
-					<p>Director</p>
-					<div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
-						<i class="fab fa-linkedin-in"></i>&nbsp;
-						<i class="fab fa-instagram"></i></div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3 product-colums">
-				<div class="product-body">
-					<img class="team-member" src="{% static 'images/luke.jpg' %}" alt="Jay">
-					<h3>Luke</h3>
-					<p>Assistant director</p>
-					<div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
-						<i class="fab fa-linkedin-in"></i>&nbsp;
-						<i class="fab fa-instagram"></i></div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3 product-colums">
-				<div class="product-body">
-					<img class="team-member" src="{% static 'images/gloria.jpg' %}" alt="Jay">
-					<h3>Gloria</h3>
-					<p>Project manager</p>
-					<div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
-						<i class="fab fa-linkedin-in"></i>&nbsp;
-						<i class="fab fa-instagram"></i></div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3 product-colums">
-				<div class="product-body">
-					<img class="team-member" src="{% static 'images/phil.jpg' %}" alt="Jay">
-					<h3>Phil</h3>
-					<p>Sales director</p>
-					<div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
-						<i class="fab fa-linkedin-in"></i>&nbsp;
-						<i class="fab fa-instagram"></i></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="about-us-header">
+                <h2>The Dutchtreats story</h2>
+            </div>
+            <div class="about-us-content">
+                <div class="row">
+                    <div class="col-12 col-md-5 col-lg-6 about-image-column">
+                        <img class="about-image" src="{% static 'images/about1.jpg' %}" alt="About">
+                        <img class="about-image" src="{% static 'images/about2.jpg' %}" alt="About">
+                    </div>
+                    <div class="col-12 col-md-7 col-lg-6">
+                        <p>
+                            As a Dutchman who has lived abroad for several years, I love to try local food and enjoy all cuisines. 
+                            However, wherever I went there were typical Dutch snacks and treats that I missed. 
+                            Whenever I speak to someone who has spend some time in The Netherlands, they all say the same thing. 
+                            Dutch treats are the best! This inspired me to create Dutchtreats. 
+                            I thought there was a market for shipping typical Dutch foods to people all over the world.
+                        </p>
+                        <p>
+                            We started small, shipping within Europe. But we grew rapidly and now we ship to four continents 
+                            and have distribution centers in 10 countries. Our team consists of experts in logistics and we make sure 
+                            all products are delivered promptly and fresh. 
+                            Please have a look at our wide range of products and feel free to contact us with any comments, questions, or suggestions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="about-us-header">
+                <h2>Meet the team</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 product-colums">
+            <div class="product-body">
+                <img class="team-member" src="{% static 'images/jay.jpg' %}" alt="Jay">
+                <h3>Jay</h3>
+                <p>Director</p>
+                <div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
+                    <i class="fab fa-linkedin-in"></i>&nbsp;
+                    <i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 product-colums">
+            <div class="product-body">
+                <img class="team-member" src="{% static 'images/luke.jpg' %}" alt="Jay">
+                <h3>Luke</h3>
+                <p>Assistant director</p>
+                <div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
+                    <i class="fab fa-linkedin-in"></i>&nbsp;
+                    <i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 product-colums">
+            <div class="product-body">
+                <img class="team-member" src="{% static 'images/gloria.jpg' %}" alt="Jay">
+                <h3>Gloria</h3>
+                <p>Project manager</p>
+                <div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
+                    <i class="fab fa-linkedin-in"></i>&nbsp;
+                    <i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 product-colums">
+            <div class="product-body">
+                <img class="team-member" src="{% static 'images/phil.jpg' %}" alt="Jay">
+                <h3>Phil</h3>
+                <p>Sales director</p>
+                <div><i class="fab fa-youtube"></i>&nbsp; <i class="fab fa-facebook-f"></i>&nbsp;
+                    <i class="fab fa-linkedin-in"></i>&nbsp;
+                    <i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

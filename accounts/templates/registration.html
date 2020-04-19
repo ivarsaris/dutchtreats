@@ -8,14 +8,14 @@
 
 {% block content %}
 
-<section>
-	<div class="container">
-        <hr>
-		<div class="row">
+<div class="container">
+	<hr>
+	<div class="row">
+		<div class="col-12">
 			<div class="center-form">
 				<p>If you already have an account, you can <a href="{% url 'login' %}">log in</a>.</p>
 				<form method="POST">
-                <!-- UserRegistrationForm from forms.py. displayed here -->
+					<!-- UserRegistrationForm from forms.py. displayed here -->
 					{% csrf_token %}
 					{{ registration_form | as_bootstrap }}
 					<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-user-plus"></i> Register</button>
@@ -23,6 +23,6 @@
 			</div>
 		</div>
 	</div>
-</section>
+</div>
 
 {% endblock %}

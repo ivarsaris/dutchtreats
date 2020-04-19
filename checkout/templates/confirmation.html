@@ -9,18 +9,17 @@
 
 {% block content %}
 
-<section>
-	<div class="container">
-		<hr>
-		<div class="row">
-			<div class="col-12">
-                <p>Thank you for your order, it was processed successfully. You will receive an order confirmation in your e-mail shortly.
-                Please check your spam and commercial folders if you don't see the e-mail in your inbox. </p>
-                <a href="{% url 'products' %}" class="btn btn-primary btn-orange"
-					role="button"><i class="fas fa-arrow-alt-circle-left"></i> Back to products page</a>
-            </div>
-        </div>
+<div class="container">
+	<hr>
+	<div class="row">
+		<div class="col-12">
+			<p>Thank you for your order, it was processed successfully. You will receive an order confirmation in your
+				e-mail shortly.
+				Please check your spam and commercial folders if you don't see the e-mail in your inbox. </p>
+			<a href="{% url 'products' %}" class="btn btn-primary btn-orange"
+				role="button"><i class="fas fa-arrow-alt-circle-left"></i> Back to products page</a>
 		</div>
-</section>
+	</div>
+</div>
 
 {% endblock %}
