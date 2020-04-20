@@ -13,19 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from accounts import urls as accounts_urls
+from accounts.views import index
+from cart import urls as cart_urls
+from checkout import urls as checkout_urls
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.views import static
 from django.views.generic import RedirectView
 from django.views.static import serve
-from accounts.views import index
-from accounts import urls as accounts_urls
-from products import urls as products_urls
-from cart import urls as cart_urls
-from search import urls as search_urls
 from home import urls as home_urls
-from checkout import urls as checkout_urls
-from products.views import all_products, product_detail, new_review, delete_review
-from django.views import static
+from products import urls as products_urls
+from products.views import (all_products, delete_review, new_review,
+                            product_detail)
+from search import urls as search_urls
+
 from .settings import MEDIA_ROOT
 
 urlpatterns = [

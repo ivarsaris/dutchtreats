@@ -1,13 +1,13 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from .forms import MakePaymentForm, OrderForm
-from .models import OrderLineItem
+import stripe
 from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.utils import timezone
 from products.models import Product
-import stripe
 
+from .forms import MakePaymentForm, OrderForm
+from .models import OrderLineItem
 
 """retrieve stripe api key from environment variables"""
 stripe.api_key = settings.STRIPE_SECRET
@@ -85,4 +85,3 @@ def confirmation(request):
 
     return render(request,
                 'confirmation.html')
-

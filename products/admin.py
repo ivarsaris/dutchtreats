@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Product, Review
 
 """registering product and review to the admin panel"""

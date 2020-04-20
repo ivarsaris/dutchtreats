@@ -1,7 +1,6 @@
 from django.db import models
 from products.models import Product
 
-
 """get all neccessary information for order to be placed"""
 class Order(models.Model):
     full_name = models.CharField(max_length=40, blank=False)

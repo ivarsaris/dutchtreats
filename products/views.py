@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, Review
-from .forms import ReviewForm
-from django.contrib.auth.models import User
-from django.http import HttpResponseForbidden, HttpResponse
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseForbidden
+from django.shortcuts import get_object_or_404, redirect, render
+
+from .forms import ReviewForm
+from .models import Product, Review
 
 
 def all_products(request):

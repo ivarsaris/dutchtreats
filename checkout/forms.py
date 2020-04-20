@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Order
 
 # class MakePaymentForm(forms.Form):
@@ -37,4 +38,3 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ('full_name', 'phone_number', 'country', 'postal_code', 
         'street_address1', 'street_address2', 'province')
-

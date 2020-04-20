@@ -1,6 +1,7 @@
-from django.shortcuts import render, reverse, redirect
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render, reverse
+
 
 def view_cart(request):
     """render the cart contents page. if user is not logged in, they're redirected 

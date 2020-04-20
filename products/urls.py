@@ -1,7 +1,6 @@
 from django.conf.urls import url
-from .views import (all_products, product_detail, new_review,
-                    delete_review)
 
+from .views import all_products, delete_review, new_review, product_detail
 
 urlpatterns = [
     url(r'^$', all_products, name='products'),
