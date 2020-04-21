@@ -8,24 +8,26 @@
 
 {% block content %}
 
-<div class="container">
-	<hr>
-	<div class="row">
-		<div class="col-12">
-			<div class="center-form">
-				<p>If you don't have an account yet, please <a href="{% url 'registration' %}">register</a>.</p>
-				<form method="POST">
-					<!-- UserLoginform from form.py, displayed here -->
-					{% csrf_token %}
-					{{ login_form | as_bootstrap }}
-					<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-sign-in-alt"></i> Login</button>
-				</form>
-				<div class="password-reset-link">
-					<p><a href="{% url 'password_reset' %}">Reset my password</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<main>
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <div class="center-form">
+                    <p>If you don't have an account yet, please <a href="{% url 'registration' %}">register</a>.</p>
+                    <form method="POST">
+                        <!-- UserLoginform from form.py, displayed here -->
+                        {% csrf_token %}
+                        {{ login_form | as_bootstrap }}
+                        <button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    </form>
+                    <div class="password-reset-link">
+                        <p><a href="{% url 'password_reset' %}">Reset my password</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 {% endblock %}

@@ -4,47 +4,45 @@
 
 {% block page_title %}Dutchtreats - Contact{% endblock %}
 
-<!-- {% block head_js %}
-
-{% endblock %} -->
-
 {% block page_heading %}Send us a message!{% endblock %}
 
 {% block content %}
 
-<div class="container">
-	<hr>
-	<div class="row">
-		<div class="center-form">
-			<div class="contact-paragraph">
-				<p>Do you have any questions, comments, or suggestions? Please send us a message!</p>
-			</div>
-			<form onsubmit="return sendMail(this);">
-				<input type="text" name="name" class="form form-name" id="name"
-                    {% if user.is_authenticated %}
-                        value="{{ user.username }}"
-                    {% else %}
-                        placeholder="name"
-                    {% endif %}
-                required/>
-				<input type="text" name="email" class="form form-email" id="email"
-                    {% if user.is_authenticated %}
-                        value="{{ user.email }}"
-                    {% else %}
-                        placeholder="email"
-                    {% endif %}
-                required/>
-				<textarea name="message" class="form form-message" placeholder='message' rows="3" cols="40"></textarea>
-				<div class="form-submit">
-					<button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-envelope-open-text"></i> Submit message</button>
-				</div>
-			</form>
-			<div class="homepage-description">
-				<p>“Building a good customer experience does not happen by accident. It happens by design.” </p>
-			</div>
-		</div>
-	</div>
-</div>
+<main>
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="center-form">
+                <div class="contact-paragraph">
+                    <p>Do you have any questions, comments, or suggestions? Please send us a message!</p>
+                </div>
+                <form onsubmit="return sendMail(this);">
+                    <input type="text" name="name" class="form form-name" id="name"
+                        {% if user.is_authenticated %}
+                            value="{{ user.username }}"
+                        {% else %}
+                            placeholder="name"
+                        {% endif %}
+                    required/>
+                    <input type="text" name="email" class="form form-email" id="email"
+                        {% if user.is_authenticated %}
+                            value="{{ user.email }}"
+                        {% else %}
+                            placeholder="email"
+                        {% endif %}
+                    required/>
+                    <textarea name="message" class="form form-message" placeholder='message' rows="3" cols="40"></textarea>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-orange"><i class="fas fa-envelope-open-text"></i> Submit message</button>
+                    </div>
+                </form>
+                <div class="homepage-description">
+                    <p>“Building a good customer experience does not happen by accident. It happens by design.” </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 {% block scripts_js %}
 <!-- Email js, used in contact form -->

@@ -34,66 +34,11 @@
 	{% block head_js %}
 	{% endblock %}
 </head>
+
 <body>
-	<nav class="navbar sticky-top navbar-expand-lg navbar-light">
-		<div class="container">
-			<!-- Dutchtreats title -->
-			<div class="navbar-brand">
-				<a href="{% url 'index' %}"><img class="flag-image" src="{% static 'images/flag.jpg' %}" alt="Dutch flag">  Dutchtreats</a>
-			</div>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-			<!-- nav items that show whether user is logged in or not -->
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="nav navbar-nav">
-					<li class="nav-item nav-item-center">
-						<a class="nav-link" href="{% url 'about' %}">About</a>
-					</li>
-					<li class="nav-item nav-item-center">
-						<a class="nav-link" href="{% url 'products' %}">Products</a>
-					</li>
-					<li class="nav-item nav-item-center">
-						<a class="nav-link" href="{% url 'contact' %}">Contact</a>
-					</li>
-				</ul>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-				{% if user.is_authenticated %}
-				<!-- following nav items only show if user is logged in -->
-				<li class="nav-item d-none d-lg-block">
-					<a class="nav-link nav-welcome">Welcome {{ user }}</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'view_cart' %}">
-						<i class="fas fa-shopping-cart"></i>
-						<!-- 
-                        amount of products in cart is shown next to cart,
-                        if there are items in cart 
-                        -->
-						{% if product_count > 0 %}
-                        {{ product_count }}
-						{% endif %}
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i></a>
-				</li>
-				{% else %}
-				<!-- following nav items only show if no user is logged in -->
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a>
-				</li>
-				{% endif %}
-			</ul>
-		</div>
-	</nav>
+
+	{% include 'navbar.html' %}
+
 	{% if messages %}
 	<!-- section is only shown if there is a message to be displayed -->
 	<div class="messages">
@@ -108,6 +53,7 @@
 		</div>
 	</div>
 	{% endif %}
+
     <header>
         <div class="container">
 			<div class="row">
@@ -117,27 +63,13 @@
 			</div>
 		</div>
     </header>
-	<main>
-		<!-- 
-        the content on every template is inserted here. 
-        -->
-		{% block content %}{% endblock %}
-	</main>
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-4">
-					<p class="copyright"><i class="far fa-copyright"></i> Ivar Saris 2020</p>
-				</div>
-				<div class="col-8">
-					<p class="footer-text">Made for educational purposes. Please visit my
-						<a href="https://github.com/ivarsaris" target="_blank">GitHub</a> page to see some of
-						my other projects.</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	
+	{% block content %}{% endblock %}
+	
+    {% include 'footer.html' %}
+
 	{% block scripts_js %}
 	{% endblock %}
+    
 </body>
 </html>
