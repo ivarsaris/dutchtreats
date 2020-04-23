@@ -6,7 +6,7 @@
 
 Dutchtreats is a web application where users can buy typical Dutch foods online and have it delivered
 at home. Users can create and update a profile, find information about the products, write reviews, 
-add items to a cart, and pay for these items using [Stripe](https://stripe.com/en-nl){:target="_blank"}. Users can also
+add items to a cart, and pay for these items using [Stripe](https://stripe.com/). Users can also
 learn about the company on the about page and get in contact with Dutchtreats using a contact form. 
 
 As a Dutchman who travels a lot, sometimes I miss Dutch foods. I love to try new foods and enjoy local cuisine.
@@ -17,7 +17,7 @@ The web application was made for educational purposes only, it's not a real web 
 
 ## Demo
 
-[Live website](https://dutchtreats.herokuapp.com/). The application is hosted on [Heroku](www.heroku.com) and uses a 
+[Live website](https://dutchtreats.herokuapp.com/). The application is hosted on [Heroku](https://www.heroku.com/home) and uses a 
 Heroku Postgress database.
 
 ![Responsive page](https://dutchtreats.s3.eu-west-3.amazonaws.com/media/images/dutchtreats-responsive.png)
@@ -38,40 +38,40 @@ who have stayed in The Netherlands and are back home can now order these foods o
 
 The user can use the Dutchtreats website to order Dutch foods. The following pages and functions are part of the application.
 
-**Home** 
+##### Home
 Gives an introduction to the website and calls for action from the user to order products.
 
-**Registration**
+##### Registration
 User can create an account with their Email address. This page is only accessible if no user is logged in.
 
-**Login** 
+##### Login 
 User can log in to their account. This page is only accessible if no user is logged in.
 
-**Profile**
+##### Profile
 User can see an overview of their personal information. The user can change their username, profile picture or Email address. 
 This page is only accessible if a user is logged in.
 
-**Products**
+##### Products
 This page has an overview of all products. The user can search for a specific product with a search form. The user can add products
 straight to their cart from the products page. This is only possible if a user is logged in. The user can also click on a product and
 open this product's page.
 
-**Single product**
+##### Single product
 This page gives a more extensive overview of the product. This includes the name, price, a picture, a description, and reviews other users
 have written about this product. The user can add products to their cart from the product page. The user can also write a review about the product.
 Writing a review and adding a product to cart is only possible if a user is logged in.
 
-**Cart**
+##### Cart
 The cart page gives an overview of all the products the user has added to their cart. It gives the picture, name, price, amount added to cart,
 and total price. The user can change the amount of any product they added to their cart. 
 The page also gives the total price of all products and a checkout button that links to the checkout page.
 
-**Checkout**
+##### Checkout
 The checkout page gives a small overview of the products the user will buy. The user can checkout using the checkout form. 
 Here, the user needs to input their personal information and Credit Card information. Stripe Credit Card payment processing is used
 for the payments.
 
-**Contact**
+##### Contact
 The user can use the contact page to get in touch with Dutchtreats. the user can fill out a form to send a message to Dutchtreats with 
 any questions, suggestions or feedback.
 
