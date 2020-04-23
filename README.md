@@ -6,7 +6,7 @@
 
 Dutchtreats is a web application where users can buy typical Dutch foods online and have it delivered
 at home. Users can create and update a profile, find information about the products, write reviews, 
-add items to a cart, and pay for these items using [Stripe](https://stripe.com/en-nl). Users can also
+add items to a cart, and pay for these items using [Stripe](https://stripe.com/en-nl){:target="_blank"}. Users can also
 learn about the company on the about page and get in contact with Dutchtreats using a contact form. 
 
 As a Dutchman who travels a lot, sometimes I miss Dutch foods. I love to try new foods and enjoy local cuisine.
