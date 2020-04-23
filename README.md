@@ -24,20 +24,64 @@ Heroku Postgress database.
 
 ## UX
 
-### Users
-
-Users of Dutchtreats are people who don't have access to Dutch foods where they live. The Netherlands has several delicacies
-that are delicious and (almost) only available in The Netherlands. Dutch expats working in other countries, or others
-who have stayed in The Netherlands and are back home can now order these foods online and have them delivered to their home.
-
 #### User stories
 
 I started by creating [user stories](userstories.md) to help determine what features to add to the website.
 
+1. Strategy
+
+Dutchtreats was created for people who don't have access to Dutch foods where they live. The Netherlands has several delicacies
+that are delicious and (almost) only available in The Netherlands. Dutch expats working in other countries, or others
+who have stayed in The Netherlands and are back home can now order these foods online and have them delivered to their home.
+
+2. Scope
+
+The user can use the Dutchtreats website to order Dutch foods. The following pages and functions are part of the application.
+
+**Home** 
+Gives an introduction to the website and calls for action from the user to order products.
+
+**Registration**
+User can create an account with their Email address. This page is only accessible if no user is logged in.
+
+**Login** 
+User can log in to their account. This page is only accessible if no user is logged in.
+
+**Profile**
+User can see an overview of their personal information. The user can change their username, profile picture or Email address. 
+This page is only accessible if a user is logged in.
+
+**Products**
+This page has an overview of all products. The user can search for a specific product with a search form. The user can add products
+straight to their cart from the products page. This is only possible if a user is logged in. The user can also click on a product and
+open this product's page.
+
+**Single product**
+This page gives a more extensive overview of the product. This includes the name, price, a picture, a description, and reviews other users
+have written about this product. The user can add products to their cart from the product page. The user can also write a review about the product.
+Writing a review and adding a product to cart is only possible if a user is logged in.
+
+**Cart**
+The cart page gives an overview of all the products the user has added to their cart. It gives the picture, name, price, amount added to cart,
+and total price. The user can change the amount of any product they added to their cart. 
+The page also gives the total price of all products and a checkout button that links to the checkout page.
+
+**Checkout**
+The checkout page gives a small overview of the products the user will buy. The user can checkout using the checkout form. 
+Here, the user needs to input their personal information and Credit Card information. Stripe Credit Card payment processing is used
+for the payments.
+
+**Contact**
+The user can use the contact page to get in touch with Dutchtreats. the user can fill out a form to send a message to Dutchtreats with 
+any questions, suggestions or feedback.
+
+The structure, skeleton and surface is too much to discuss here. All elements were thought through with the user experience in mind.
+
 ### Mockup
 
 I created a [mockup](https://ivarsaris.wixsite.com/dutchtreats) using Wix. I did this in order to determine how to style the website and play around with
-the layout.
+the layout. I designed the mockup both for desktop and mobile. For some reason, the mockup is only responsive to mobile on an actual mobile device,
+not on a mobile screen in Chrome devtools. I don't know why.
 
 ### Design
 
@@ -99,6 +143,11 @@ Travis continuous integration. I had debug=True throughout working on the projec
 make sure no sensitive data can be retrieved. Throughout the development process, I had the necessary environment variables set in the env.py file.
 I added this file to the .gitignore file so the sensitive variables wouldn't be uploaded the GitHub. I added the same environment variables to 
 Heroku.
+
+I made this application in two time phases. There was significant time between the two phases. I had forgotten quite a bit about how Django works
+and I spent some time figuring it out again. In this time, I stupidly added several secret keys to my settings file and committed them to GitHub. 
+Thankfully I realized my mistake and changed all keys and disabled the ones I committed to GitHub. Now, no keys that can be found in any commit 
+are useable.
 
 ## Testing
 
